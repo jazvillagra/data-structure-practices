@@ -1,0 +1,11 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ReadFile file = new ReadFile();
+		System.out.println("El TestSum del archivo es:");
+		System.out.println(file.Read("/home/jvillagra/input.txt"));
+	}
+
+}

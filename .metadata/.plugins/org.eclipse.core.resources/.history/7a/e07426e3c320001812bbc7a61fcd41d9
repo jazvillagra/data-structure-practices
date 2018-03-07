@@ -1,0 +1,12 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+
+public class ReadFile {
+	public void Read(String dir){
+		try {
+			
+		} catch (Exception e) {
+			BufferedReader bf = new BufferedReader(new FileReader(dir));
+		}
+	}
+}

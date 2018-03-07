@@ -1,0 +1,19 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ReadFile file = new ReadFile();
+		int firstFile = file.Read("/home/jvillagra/input.txt");
+		int secondFile = file.Read("/home/jvillagra/blabla.txt");
+		
+		System.out.println("El TestSum del primer archivo es: "+firstFile);
+		System.out.println("El TestSum del segundo archivo es: "+secondFile);
+		if (firstFile==secondFile){
+			System.out.println("Los archivos son iguales");
+		}else{
+			System.out.println("Los archivos NO son iguales");
+		}
+	}
+
+}

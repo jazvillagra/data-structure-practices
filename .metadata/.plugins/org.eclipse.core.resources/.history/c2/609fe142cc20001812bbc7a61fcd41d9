@@ -1,0 +1,18 @@
+import java.io.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	public static void hacerES (InputStream in,OutputStream out) {
+		int c;
+		try {
+			while (( c=in.read()) >=0 ){ c= Character.toLowerCase( (char) c);
+			out.write( c );
+		}catch (IOException e) {
+		 System.err.println(“Error de E/S”);
+		 System.exit(1);
+		}
+	}
+
+}

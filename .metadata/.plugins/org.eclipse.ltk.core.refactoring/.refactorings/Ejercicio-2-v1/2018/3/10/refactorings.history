@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Convert local variable &apos;ReadFile.Read().bf&apos; in &apos;ReadFile.Read()&apos; to field&#x0A;- Original project: &apos;Ejercicio-2-v1&apos;&#x0A;- Original element: &apos;ReadFile.Read().bf&apos;&#x0A;- Field name: &apos;bf&apos;&#x0A;- Initialize field in method&#x0A;- Declared visibility: &apos;private&apos;" description="Convert local variable &apos;bf&apos; to field" final="false" flags="2" id="org.eclipse.jdt.ui.promote.temp" initialize="1" input="/src&lt;{ReadFile.java" name="bf" selection="200 44" stamp="1520384856399" static="false" version="1.0" visibility="2"/>
-</session>

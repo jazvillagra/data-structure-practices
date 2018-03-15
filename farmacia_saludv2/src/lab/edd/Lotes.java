@@ -1,7 +1,7 @@
 package lab.edd;
 
 public class Lotes {
-	String fechaVencto;
+	String fechaVto;
 	double precioCosto;
 	double comision;
 	double PrecioVenta=getPrecioVenta(precioCosto);
@@ -13,5 +13,11 @@ public class Lotes {
 		venta=x+costo;
 	
 		return venta;		
+	}
+	
+	public Lotes (String fechaVto, double precioCosto, double comision) {
+		this.fechaVto=fechaVto;
+		this.precioCosto=precioCosto;
+		this.comision=comision;
 	}
 }

@@ -5,7 +5,6 @@ public class Test {
 	public static void main(String[] args)
 		throws Exception
 		{
-		Test test1=new Test();
 		Medicamentos[] meds = new Medicamentos[5];
 		
 		String[] input = {"Paracetamol","Clorfenamina ","Pseudoefedrina"};
@@ -21,6 +20,7 @@ public class Test {
 		meds[3]=new Medicamentos("FG23GF","Actron","Bayern",input3);
 		
 		Lotes[] lotes= new Lotes[4];
+		
 		}
 
 }

@@ -12,4 +12,5 @@ public class Medicamentos {
 		this.laboratorio=laboratorio;
 		this.drogas=drogas;
 	}
+	
 }

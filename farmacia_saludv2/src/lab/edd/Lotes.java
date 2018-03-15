@@ -1,10 +1,11 @@
 package lab.edd;
 
-public class Lotes {
+public class Lotes{
 	String fechaVto;
 	double precioCosto;
 	double comision;
 	double PrecioVenta=getPrecioVenta(precioCosto);
+	Medicamentos[] input;
 	
 	
 	public double getPrecioVenta(double costo){
@@ -15,9 +16,11 @@ public class Lotes {
 		return venta;		
 	}
 	
-	public Lotes (String fechaVto, double precioCosto, double comision, String[] input) {
+	public Lotes (String fechaVto, double precioCosto, double comision, Medicamentos input) {
 		this.fechaVto=fechaVto;
 		this.precioCosto=precioCosto;
 		this.comision=comision;
 	}
+
+	
 }

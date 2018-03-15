@@ -15,7 +15,7 @@ public class Lotes {
 		return venta;		
 	}
 	
-	public Lotes (String fechaVto, double precioCosto, double comision) {
+	public Lotes (String fechaVto, double precioCosto, double comision, String[] input) {
 		this.fechaVto=fechaVto;
 		this.precioCosto=precioCosto;
 		this.comision=comision;

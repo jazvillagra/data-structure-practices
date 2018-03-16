@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="Ejercicio-1-v2/src"/>
+	<classpathentry kind="src" path="Ejercicio-Testsums-Taller-1/src"/>
+	<classpathentry kind="src" path="ManagingFilesExample/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="Ejercicio-1-v2/bin"/>
+</classpath>

@@ -21,10 +21,10 @@ public class Test {
 		meds[3]=new Medicamentos("FG23GF","Actron","Bayern",input3);
 		
 		Lotes[] lotes= new Lotes[4];
-		lotes[0]= new Lotes("2018-2-10",25000,5000,meds[0]);
-		lotes[1]= new Lotes("2016-3-23",35000,15000,meds[1]);
-		lotes[2]= new Lotes("2019-5-17",2000,1000,meds[2]);
-		lotes[3]= new Lotes("2022-12-15",123000,3000,meds[3]);
+		lotes[0]= new Lotes("2018210",25000,5000,meds[0]);
+		lotes[1]= new Lotes("2016323",35000,15000,meds[1]);
+		lotes[2]= new Lotes("2019517",2000,1000,meds[2]);
+		lotes[3]= new Lotes("2018815",123000,3000,meds[3]);
 		
 		Scanner sc = new Scanner(System.in);
 		Fecha vencimiento = new Fecha();
@@ -35,16 +35,17 @@ public class Test {
 		System.out.println("Ingrese el dia(1-31): ");
 		vencimiento.setDd(sc.nextInt());
 		//esto falta cambiar
-		String fechaVencimiento = String.valueOf(vencimiento.getAaaa())+"-"+
-				String.valueOf(vencimiento.getMm())+"-"+
+		String fechaVencimiento = String.valueOf(vencimiento.getAaaa())+
+				String.valueOf(vencimiento.getMm())+
 				String.valueOf(vencimiento.getDd());
 		for (int i=0; i<4; i++){
-			if(lotes[i].fechaVto.equals(fechaVencimiento)){
-				System.out.println("Medicamento: * Codigo: "+meds[i].codigo+"\n");
-				System.out.println("\t"+"* Nombre: "+meds[i].nombre+"\n");
-				System.out.println("\t"+"* Laboratorio: "+meds[i].laboratorio+"\n");
+				if(Integer.parseInt(fechaVencimiento)>=Integer.parseInt(lotes[i].fechaVto)){
+						System.out.println("Medicamento: * Codigo: "+meds[i].codigo+"\n");
+						System.out.println("\t"+"* Nombre: "+meds[i].nombre+"\n");
+						System.out.println("\t"+"* Laboratorio: "+meds[i].laboratorio+"\n");
+				}
 			}
-		}
-		}
-
+	}
 }
+
+

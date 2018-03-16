@@ -1,5 +1,7 @@
 package lab.edd;
-
+/**
+ * @authors jheisecke, jvillagra. Javier Heisecke, Paula Villagra
+ */
 public class Fecha {
 	int aaaa;
 	int mm;

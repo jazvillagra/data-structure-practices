@@ -1,6 +1,9 @@
+
 package lab.edd;
 import java.util.Scanner;
-
+/**
+ * @authors jheisecke, jvillagra. Javier Heisecke, Paula Villagra
+ */
 public class Test {
 
 	public static void main(String[] args)
@@ -34,7 +37,7 @@ public class Test {
 		vencimiento.setMm(sc.nextInt());
 		System.out.println("Ingrese el dia(1-31): ");
 		vencimiento.setDd(sc.nextInt());
-		//esto falta cambiar
+
 		String fechaVencimiento = String.valueOf(vencimiento.getAaaa())+
 				String.valueOf(vencimiento.getMm())+
 				String.valueOf(vencimiento.getDd());

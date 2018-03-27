@@ -37,7 +37,18 @@ public class ListaEnlazada {
 	public Long recuperarElemento(String clave) {
 		//TODO: pendiente de implementacion
 		
-		return 0L;
+		Long pos = -1L;
+		
+		NodoListaEnlazada act = cabecera;
+		int i = 0;
+		while (act.getSiguienteElemento() != null && pos == -1) {
+			i++;
+			act = act.getSiguienteElemento();
+			if (act.getDato().getClave().equals(clave)) {
+				pos = (long) i;
+			}
+		}
+		return pos;
 	}
 
 	public Iterador getIterador() {

@@ -13,6 +13,14 @@ public class MainEjecutable {
 			Contenedor val = it.next();
 			System.out.println(val.getClave() + " " + val.getValor());
 		}
+		it = L.getIterador();
+		while (it.hasNext()) {
+			Contenedor X = it.next();
+			//esto falta implementar todo
+			if(L.recuperarElemento(X.getClave()) > 0){
+				System.out.println();
+			}
+		}
 		System.out.println("}\n");
 		//TODO: Poner aqui la rutina que lea los valores de listaLibros, listaPrimerasLetras de los argumentos del programa
 		//y luego ejecute el calculo e imprima la lista resultante en pantalla

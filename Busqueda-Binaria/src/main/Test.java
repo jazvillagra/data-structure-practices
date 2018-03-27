@@ -16,7 +16,7 @@ public class Test extends InsertionSort{
 			sort(vec);
 			// final
 			t2 = System.currentTimeMillis();
-			System.out.printf("%d,%d,%d,%f",N,(t2-t1),N*(Math.log/Math.log(2.0)),(t2-t1)/N*(Math.log(N)/Math.log(2)));
+			System.out.printf("%d,%d,%d,%f",N,(t2-t1),N*(Math.log(20)/Math.log(2.0)),(t2-t1)/N*(Math.log(N)/Math.log(2)));
 		}
 	}
 }

@@ -2,7 +2,7 @@
 public class ListaEnlazada {
 
 	private NodoListaEnlazada cabecera;
-	
+	private int tam;
 	public ListaEnlazada() {
 		cabecera = new NodoListaEnlazada(null, null);
 	}
@@ -14,8 +14,22 @@ public class ListaEnlazada {
 	 * @param clave a insertar/actualizar
 	 * @param valor asociado a la clave
 	 */
+	//FELIPE AIUDA
+	//ESTO ESTA BIEN??
 	public void agregarElemento(String clave, Long valor) {
 		//TODO: pendiente de implementar
+		//Se crea el contenedor de la clave y el valor a insertar en el elemento de la lista
+		Contenedor n = new Contenedor(clave, valor);
+		// se crea el nodo "nuevo" en la lista
+		NodoListaEnlazada nuevo = new NodoListaEnlazada(null, null);
+		//seteamos el nuevo dato
+		nuevo.setDato(n);
+		//seteamos el elemento al que apuntara el nodo ingresado
+		nuevo.setSiguienteElemento(cabecera.getSiguienteElemento());
+		//seteamos el elemento al que apuntara la cabecera
+		cabecera.setSiguienteElemento(nuevo);
+		//aumenta el tamaño de la lista cada vez que se ingresa un nuevo elemento
+		tam++;
 	}
 	
 	/**

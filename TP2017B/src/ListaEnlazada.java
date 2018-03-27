@@ -21,11 +21,7 @@ public class ListaEnlazada {
 		//Se crea el contenedor de la clave y el valor a insertar en el elemento de la lista
 		Contenedor n = new Contenedor(clave, valor);
 		// se crea el nodo "nuevo" en la lista
-		NodoListaEnlazada nuevo = new NodoListaEnlazada(null, null);
-		//seteamos el nuevo dato
-		nuevo.setDato(n);
-		//seteamos el elemento al que apuntara el nodo ingresado
-		nuevo.setSiguienteElemento(cabecera.getSiguienteElemento());
+		NodoListaEnlazada nuevo = new NodoListaEnlazada(n, cabecera.getSiguienteElemento());
 		//seteamos el elemento al que apuntara la cabecera
 		cabecera.setSiguienteElemento(nuevo);
 		//aumenta el tamaño de la lista cada vez que se ingresa un nuevo elemento
@@ -42,6 +38,10 @@ public class ListaEnlazada {
 		//TODO: pendiente de implementacion
 		
 		return 0L;
+	}
+
+	public Iterador getIterador() {
+		return new Iterador(cabecera);
 	}
 	
 }

@@ -14,18 +14,21 @@ public class ListaEnlazada {
 	 * @param clave a insertar/actualizar
 	 * @param valor asociado a la clave
 	 */
-	//FELIPE AIUDA
-	//ESTO ESTA BIEN??
+	
 	public void agregarElemento(String clave, Long valor) {
 		//TODO: pendiente de implementar
 		//Se crea el contenedor de la clave y el valor a insertar en el elemento de la lista
 		Contenedor n = new Contenedor(clave, valor);
-		// se crea el nodo "nuevo" en la lista
-		NodoListaEnlazada nuevo = new NodoListaEnlazada(n, cabecera.getSiguienteElemento());
-		//seteamos el elemento al que apuntara la cabecera
-		cabecera.setSiguienteElemento(nuevo);
-		//aumenta el tamaño de la lista cada vez que se ingresa un nuevo elemento
-		tam++;
+		if(cabecera.getSiguienteElemento() == null) {
+			
+			cabecera.setDato(n);
+			cabecera.setSiguienteElemento(cabecera);
+			tam++;
+		}else {
+			NodoListaEnlazada nuevo = new NodoListaEnlazada(n, cabecera.getSiguienteElemento());
+			cabecera.setSiguienteElemento(nuevo);
+			cabecera = nuevo;
+		}
 	}
 	
 	/**

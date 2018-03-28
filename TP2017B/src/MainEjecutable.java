@@ -6,13 +6,18 @@ public class MainEjecutable {
 		L.agregarElemento("ABCDE", 20L);
 		L.agregarElemento("FGHIJ", 30L);
 		L.agregarElemento("KLMNO", 2L);
+		L.agregarElemento("KLMNO", 2L);
+		L.agregarElemento("KLMNO", 2L);
 		
-		System.out.print("\nContenido de la lista A: {\n");
+
+		//imprimir lista completa
+		System.out.print("\nContenido de la lista A: {");
 		Iterador it = L.getIterador();
 		while (it.hasNext()) {
 			Contenedor val = it.next();
 			System.out.println(val.getClave() + " " + val.getValor());
 		}
+		//buscar elemento
 		it = L.getIterador();
 		while (it.hasNext()) {
 			Contenedor X = it.next();

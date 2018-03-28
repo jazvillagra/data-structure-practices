@@ -16,19 +16,19 @@ public class ListaEnlazada {
 	 */
 	
 	public void agregarElemento(String clave, Long valor) {
-		//TODO: pendiente de implementar
 		//Se crea el contenedor de la clave y el valor a insertar en el elemento de la lista
 		Contenedor n = new Contenedor(clave, valor);
-		if(cabecera.getSiguienteElemento() == null) {
-			
-			cabecera.setDato(n);
-			cabecera.setSiguienteElemento(cabecera);
-			tam++;
-		}else {
-			NodoListaEnlazada nuevo = new NodoListaEnlazada(n, cabecera.getSiguienteElemento());
-			cabecera.setSiguienteElemento(nuevo);
-			cabecera = nuevo;
+		
+		if(cabecera != null) {
+			if(recuperarElemento(n.getClave()) == -1L) {
+		        //se crea el nodo "nuevo" en la lista
+		        NodoListaEnlazada nuevo = new NodoListaEnlazada(n, cabecera.getSiguienteElemento());
+		        //seteamos el elemento al que apuntara la cabecera
+		        cabecera.setSiguienteElemento(nuevo);
+		        //aumenta el tamaño de la lista cada vez que se ingresa un nuevo elemento
+			}
 		}
+
 	}
 	
 	/**
@@ -38,13 +38,12 @@ public class ListaEnlazada {
 	 * @return el valor asociado a la clave o NULL si no existe dicha clave en la lista
 	 */
 	public Long recuperarElemento(String clave) {
-		//TODO: pendiente de implementacion
 		
 		Long pos = -1L;
 		
 		NodoListaEnlazada act = cabecera;
 		int i = 0;
-		while (act.getSiguienteElemento() != null && pos == -1) {
+		while (act.getSiguienteElemento() != null && pos == -1L) {
 			i++;
 			act = act.getSiguienteElemento();
 			if (act.getDato().getClave().equals(clave)) {

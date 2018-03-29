@@ -29,7 +29,7 @@ public class ListaEnlazada {
 		Contenedor n = new Contenedor(clave, valor);
 		
 		if(cabecera != null) {	
-			if(recuperarElemento(n.getClave()) == -1L) {
+			if(buscarElemento(n.getClave()) == -1L) {
 		        //se crea el nodo "nuevo" en la lista
 		        NodoListaEnlazada nuevo = new NodoListaEnlazada(n, cabecera.getSiguienteElemento());
 		        //seteamos el elemento al que apuntara la cabecera
@@ -51,6 +51,26 @@ public class ListaEnlazada {
 	 * @return el valor asociado a la clave o NULL si no existe dicha clave en la lista
 	 */
 	public Long recuperarElemento(String clave) {
+		//se inicializa la posicion a utilizar
+		Long pos = -1L;
+		NodoListaEnlazada act = cabecera;
+		int i = 0;
+		
+		while (act.getSiguienteElemento() != null && pos == -1L) {
+			i++;
+			act = act.getSiguienteElemento();
+			if (act.getDato().getClave().equals(clave)) {
+				pos = act.getDato().getValor();
+			}
+		}
+		if(pos != -1){
+			return pos;
+		}else{
+			return null;
+		}
+	}
+	
+	public Long buscarElemento(String clave) {
 		//se inicializa la posicion a utilizar
 		Long pos = -1L;
 		NodoListaEnlazada act = cabecera;

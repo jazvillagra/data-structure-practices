@@ -26,7 +26,7 @@ public class MainEjecutable {
 		it = ListaLibros.getIterador();
 		String libro = args[0].substring(0,args[0].indexOf(" "));
 		System.out.println("Buscando elemento " + libro + " en la lista de libros: ");
-		Long encontrar = ListaLibros.recuperarElemento(args[0]);
+		Long encontrar = ListaLibros.buscarElemento(args[0]);
 		if (encontrar > -1L) {
 			System.out.println("\n El libro se encuentra disponible en stock.");
 		}else{

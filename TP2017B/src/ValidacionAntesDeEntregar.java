@@ -65,9 +65,9 @@ public class ValidacionAntesDeEntregar {
 	@Test
 	public void pruebaCaso8() {
 		ListaEnlazada l = new ListaEnlazada();
-		l.agregarElemento("A", 10L);
-		l.agregarElemento("A", 20L);
 		l.agregarElemento("A", 30L);
+		l.agregarElemento("A", 20L);
+		l.agregarElemento("A", 10L);
 		Iterador it = l.getIterador();
 		while (it.hasNext()) {
 			Contenedor val = it.next();
@@ -79,8 +79,8 @@ public class ValidacionAntesDeEntregar {
 	@Test
 	public void pruebaCaso9() {
 		ListaEnlazada l = new ListaEnlazada();
-		l.agregarElemento("A", 10L);
 		l.agregarElemento("A", 20L);
+		l.agregarElemento("A", 10L);
 		l.agregarElemento("B", 10L);
 		l.agregarElemento("C", 10L);
 		assertEquals(new Long(20), l.recuperarElemento("A"));

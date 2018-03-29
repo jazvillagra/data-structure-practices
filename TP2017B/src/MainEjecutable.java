@@ -1,43 +1,39 @@
 
 public class MainEjecutable {
 	static String [] listaLibros = new String[] {"ABCDE 50","ABCDE 40","ABCDE 20", "CDFEG 50", "BXYZQ 25", "BTSQZ 89", "DFGHJ 60", "PQRST 8", "PQRST 11"};
-	static String [] listaPrimerasLetras = new String[] {"A", "B", "C", "W"};
+	static String [] listaPrimerasLetras = new String[] {"A", "B", "C", "W","P"};
+	static CalculoStockImpl cs = new CalculoStockImpl();
+	
 	public static void main(String[] args){
 		ListaEnlazada ListaLibros = new ListaEnlazada();
-		ListaEnlazada ListaPrimerasLetras = new ListaEnlazada();
 		Iterador it = ListaLibros.getIterador();
 		
 		//cargar elementos a ListaLibros
 		cargarElementos(ListaLibros, listaLibros);
 		
-		//cargar elementos a ListaPrimerasLetras
-		cargarElementos(ListaPrimerasLetras, listaPrimerasLetras);
-		
-		//imprimir lista completa de libros disponibles
-		stockDisponible(ListaLibros, it);
-		/*
-		 * Iterador cat = ListaPrimerasLetras.getIterador();
-		 * System.out.print("\nCategorias cargadas como ejemplo: {\n");
-		 * while (cat.hasNext()) {
-		 	* Contenedor val = cat.next();
-		 	* System.out.println(val.getClave() + " " + val.getValor());
-		 	* }
-	 	 * System.out.println("}\n");
-	 	*/
-		//buscar elemento ingresado por linea de comandos y revisar si existe o no
-		it = ListaLibros.getIterador();
+		//ESTO ES SOLO PARA PRUEBAS
+		//Buscar elemento ingresado por linea de comandos y revisar si existe o no
+		/*it = ListaLibros.getIterador();
 		String libro = args[0];
 		System.out.println("Buscando elemento " + libro + " en la lista de libros: ");
 		Long encontrar = ListaLibros.buscarElemento(args[0]);
 		if (encontrar > -1L) {
 			System.out.println("\n El libro se encuentra disponible en stock. Se tienen en stock "+ListaLibros.recuperarElemento(libro)+" unidades");
 		}else{
-			System.out.println("El libro que busca no se encuentra disponible.");
+			System.out.println("El libro que busca no se encuentra disponible.\n");
+		}*/
+		
+		System.out.print("\nLibros disponibles (titulo y cantidad disponible): {\n");
+		stockDisponible(ListaLibros, it);
+
+		System.out.print("\nCategorias disponibles: \n");
+		for (int i = 0; i < listaPrimerasLetras.length; i++) {
+			System.out.println(listaPrimerasLetras[i]);
 		}
+		System.out.println("\nClasificacion Final: ");
 		
-		//TODO: Poner aqui la rutina que lea los valores de listaLibros, listaPrimerasLetras de los argumentos del programa
-		//y luego ejecute el calculo e imprima la lista resultante en pantalla
-		
+		String stock = cs.resumenStockLibreria(listaLibros, listaPrimerasLetras);
+		System.out.println(stock);
 	}
 	//cargar elementos a ListaLibros y ListaPrimerasLetras
 	public static void cargarElementos(ListaEnlazada L, String[] ls){
@@ -66,7 +62,6 @@ public class MainEjecutable {
 	}
 	//imprimir stock disponible
 	public static void stockDisponible(ListaEnlazada ListaLibros, Iterador it){
-		System.out.print("\nLibros disponibles (titulo y cantidad disponible): {\n");
 		while (it.hasNext()) {
 			Contenedor val = it.next();
 			System.out.println(val.getClave() + " " + val.getValor());

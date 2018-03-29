@@ -2,16 +2,7 @@
 public class ListaEnlazada {
 
 	private NodoListaEnlazada cabecera;
-	private int tam;
 	
-	public int getTam() {
-		return tam;
-	}
-
-	public void setTam(int tam) {
-		this.tam = tam;
-	}
-
 	public ListaEnlazada() {
 		cabecera = new NodoListaEnlazada(null, null);
 	}
@@ -35,9 +26,8 @@ public class ListaEnlazada {
 		        //seteamos el elemento al que apuntara la cabecera
 		        cabecera.setSiguienteElemento(nuevo);
 		        //aumenta el tamaño de la lista cada vez que se ingresa un nuevo elemento
-		        tam++;
 			}else{
-				n.setValor(valor);
+				n.setValor(n.getValor()+valor);
 				cabecera.setDato(n);
 				//System.out.println(n.getClave()+" "+n.getValor());
 			}

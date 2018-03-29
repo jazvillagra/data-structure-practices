@@ -12,5 +12,6 @@ public interface CalculoStock {
 	 *         una cadena vacia en caso que alguno de sus parametros sea null o vacio.
 	 */
 	public String resumenStockLibreria(String[] listaLibros, String[] listaPrimerasLetras);
+	public Long extraerCantidad(String ls);
 	
 }

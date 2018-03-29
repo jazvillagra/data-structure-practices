@@ -68,11 +68,6 @@ public class ValidacionAntesDeEntregar {
 		l.agregarElemento("A", 30L);
 		l.agregarElemento("A", 20L);
 		l.agregarElemento("A", 10L);
-		Iterador it = l.getIterador();
-		while (it.hasNext()) {
-			Contenedor val = it.next();
-			System.out.println(val.getClave() + " " + val.getValor());
-		}
 		assertEquals(new Long(30), l.recuperarElemento("A"));
 	}
 	

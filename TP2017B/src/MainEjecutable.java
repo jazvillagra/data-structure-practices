@@ -1,14 +1,10 @@
-import java.text.NumberFormat;
-import java.text.ParseException;
-
-import com.sun.tracing.dtrace.ArgsAttributes;
 
 public class MainEjecutable {
-	
-	public static void main(String[] args) throws ParseException {
+	static String [] listaLibros = new String[] {"ABCDE 20", "CDFEG 50", "BXYZQ 25", "BTSQZ 89", "DFGHJ 60"};
+	public static void main(String[] args){
 		ListaEnlazada L = new ListaEnlazada();
 		//cargar elementos de la linea de comandos a la lista
-		cargarElementos(L, args);
+		cargarElementos(L, listaLibros);
 		//imprimir lista completa
 		System.out.print("\nContenido de la lista A: {\n");
 		Iterador it = L.getIterador();
@@ -31,18 +27,18 @@ public class MainEjecutable {
 		
 	}
 	
-	public static void cargarElementos(ListaEnlazada L, String[] args) throws ParseException{
+	public static void cargarElementos(ListaEnlazada L, String[] listaLibros){
 		System.out.println("Cargando Elementos");
-		for(int i=0; i < args.length; i++){
-			int index = args[i].indexOf(",");
-			String str = args[i].substring(0, index);
-			L.agregarElemento(str,extraerCantidad(args[i]));
+		for(int i=0; i < listaLibros.length; i++){
+			int index = listaLibros[i].indexOf(" ");
+			String str = listaLibros[i].substring(0, index);
+			L.agregarElemento(str,extraerCantidad(listaLibros[i]));
 		}
 	}
-	public static Long extraerCantidad(String args){
+	public static Long extraerCantidad(String listaLibros){
 		String cantidad = "";
-		for (int j = 0; j < args.length(); j++) {
-			Character character = args.charAt(j);
+		for (int j = 0; j < listaLibros.length(); j++) {
+			Character character = listaLibros.charAt(j);
 	        if (Character.isDigit(character)) {
 	        	cantidad += character;
 	        }

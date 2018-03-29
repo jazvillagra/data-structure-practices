@@ -26,6 +26,7 @@ public class ListaEnlazada {
 		        //seteamos el elemento al que apuntara la cabecera
 		        cabecera.setSiguienteElemento(nuevo);
 		        //aumenta el tamaño de la lista cada vez que se ingresa un nuevo elemento
+		        tam++;
 			}
 		}
 

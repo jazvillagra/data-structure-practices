@@ -3,6 +3,15 @@ public class ListaEnlazada {
 
 	private NodoListaEnlazada cabecera;
 	private int tam;
+	
+	public int getTam() {
+		return tam;
+	}
+
+	public void setTam(int tam) {
+		this.tam = tam;
+	}
+
 	public ListaEnlazada() {
 		cabecera = new NodoListaEnlazada(null, null);
 	}
@@ -19,7 +28,7 @@ public class ListaEnlazada {
 		//Se crea el contenedor de la clave y el valor a insertar en el elemento de la lista
 		Contenedor n = new Contenedor(clave, valor);
 		
-		if(cabecera != null) {
+		if(cabecera != null) {	
 			if(recuperarElemento(n.getClave()) == -1L) {
 		        //se crea el nodo "nuevo" en la lista
 		        NodoListaEnlazada nuevo = new NodoListaEnlazada(n, cabecera.getSiguienteElemento());
@@ -27,9 +36,12 @@ public class ListaEnlazada {
 		        cabecera.setSiguienteElemento(nuevo);
 		        //aumenta el tamaño de la lista cada vez que se ingresa un nuevo elemento
 		        tam++;
+			}else{
+				n.setValor(valor);
+				cabecera.setDato(n);
+				//System.out.println(n.getClave()+" "+n.getValor());
 			}
 		}
-
 	}
 	
 	/**
@@ -39,11 +51,11 @@ public class ListaEnlazada {
 	 * @return el valor asociado a la clave o NULL si no existe dicha clave en la lista
 	 */
 	public Long recuperarElemento(String clave) {
-		
+		//se inicializa la posicion a utilizar
 		Long pos = -1L;
-		
 		NodoListaEnlazada act = cabecera;
 		int i = 0;
+		
 		while (act.getSiguienteElemento() != null && pos == -1L) {
 			i++;
 			act = act.getSiguienteElemento();
@@ -51,11 +63,14 @@ public class ListaEnlazada {
 				pos = (long) i;
 			}
 		}
+		
 		return pos;
 	}
 
 	public Iterador getIterador() {
+	
 		return new Iterador(cabecera);
+	
 	}
 	
 }

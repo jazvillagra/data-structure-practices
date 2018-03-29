@@ -1,6 +1,6 @@
 
 public class MainEjecutable {
-	static String [] listaLibros = new String[] {"ABCDE 50","ABCDE 40","ABCDE 20", "CDFEG 50", "BXYZQ 25", "BTSQZ 89", "DFGHJ 60"};
+	static String [] listaLibros = new String[] {"ABCDE 50","ABCDE 40","ABCDE 20", "CDFEG 50", "BXYZQ 25", "BTSQZ 89", "DFGHJ 60", "PQRST 8", "PQRST 11"};
 	static String [] listaPrimerasLetras = new String[] {"A", "B", "C", "W"};
 	public static void main(String[] args){
 		ListaEnlazada ListaLibros = new ListaEnlazada();
@@ -15,20 +15,22 @@ public class MainEjecutable {
 		
 		//imprimir lista completa de libros disponibles
 		stockDisponible(ListaLibros, it);
-		Iterador cat = ListaPrimerasLetras.getIterador();
-		System.out.print("\nCategorias cargadas como ejemplo: {\n");
-		while (cat.hasNext()) {
-			Contenedor val = cat.next();
-			System.out.println(val.getClave() + " " + val.getValor());
-		}
-		System.out.println("}\n");
+		/*
+		 * Iterador cat = ListaPrimerasLetras.getIterador();
+		 * System.out.print("\nCategorias cargadas como ejemplo: {\n");
+		 * while (cat.hasNext()) {
+		 	* Contenedor val = cat.next();
+		 	* System.out.println(val.getClave() + " " + val.getValor());
+		 	* }
+	 	 * System.out.println("}\n");
+	 	*/
 		//buscar elemento ingresado por linea de comandos y revisar si existe o no
 		it = ListaLibros.getIterador();
-		String libro = args[0].substring(0,args[0].indexOf(" "));
+		String libro = args[0];
 		System.out.println("Buscando elemento " + libro + " en la lista de libros: ");
 		Long encontrar = ListaLibros.buscarElemento(args[0]);
 		if (encontrar > -1L) {
-			System.out.println("\n El libro se encuentra disponible en stock.");
+			System.out.println("\n El libro se encuentra disponible en stock. Se tienen en stock "+ListaLibros.recuperarElemento(libro)+" unidades");
 		}else{
 			System.out.println("El libro que busca no se encuentra disponible.");
 		}

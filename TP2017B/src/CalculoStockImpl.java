@@ -11,22 +11,6 @@ public class CalculoStockImpl implements CalculoStock {
 	 */
 	@Override
 	public String resumenStockLibreria(String[] listaLibros, String[] listaPrimerasLetras) {
-		ListaEnlazada aux = new ListaEnlazada();
-		NodoListaEnlazada cabecera = new NodoListaEnlazada(null, null);
-		//TODO: implementar solucion en este metodo.
-		//debe usar una instancia de ListaEnlazada.java
-		NodoListaEnlazada act = cabecera;
-		int i = 0;
-		while(act.getSiguienteElemento() != null){
-			while (act.getSiguienteElemento() != null) {
-				i++;
-				act = act.getSiguienteElemento();
-				//if (act.getDato().getClave().equals(clave)) {
-					
-				//}
-			}
-			
-		}
 		return "";
 	}
 

@@ -1,3 +1,4 @@
+//Author: Jazmin Villagra
 
 public class MainEjecutable {
 	static String [] listaLibros = new String[] {"ABCDE 50","ABCDE 40","ABCDE 20", "CDFEG 50", "BXYZQ 25", "BTSQZ 89", "DFGHJ 60", "PQRST 8", "PQRST 11"};

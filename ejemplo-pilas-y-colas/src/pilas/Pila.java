@@ -64,7 +64,10 @@ public class Pila<TipoDeDato> implements InterfazPila<TipoDeDato> {
             return false;
         }
     }
-
+    /**
+     * @author jvillagra, jheisecke, matiasfare
+     * 
+     */
 	@Override
 	public void reemplazar(TipoDeDato valorViejo, TipoDeDato valorNuevo) {
 		TipoDeDato act = null;
@@ -85,6 +88,11 @@ public class Pila<TipoDeDato> implements InterfazPila<TipoDeDato> {
 			System.out.println("Error al reemplazar los valores. " + e.getMessage());
 		}
 	}  
+	/**
+	 * @author jvillagra, jheisecke, matiasfare
+	 * 
+	 */
+	@Override
 	public void mover(int n, Pila<TipoDeDato> org, int origen, Pila<TipoDeDato> aux, int auxiliar, Pila<TipoDeDato> dest, int destino){
 		TipoDeDato disco;
 		if (n > 0) {

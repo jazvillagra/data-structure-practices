@@ -3,7 +3,10 @@ package colas;
 import java.util.Scanner;
 
 import pilas.Pila;
-
+/**
+ * @author jvillagra, jheisecke, matiasfare
+ * 
+ */
 public class ColaClientesTest {
 	public static void main(String[] args) {
 		 Cola<String> cola = new Cola<>();

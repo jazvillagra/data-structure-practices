@@ -3,7 +3,10 @@ package pilas;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
+/**
+ * @author jvillagra, jheisecke, matiasfare
+ * 
+ */
 public class TorresDeHanoi {
 
 	public static void main(String[] args) {

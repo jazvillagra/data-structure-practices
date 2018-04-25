@@ -12,12 +12,12 @@ public class ColaClientesTest {
 		 String nombre = null;
 		 System.out.println("Ingrese los nombres que desea almacenar"
 			 		+ "(doble enter para terminar el proceso de carga): ");
-		 nombre = sc.next();
+		 nombre = sc.nextLine();
 		 do{
 			 cola.encolar(nombre);;
 			 System.out.println("Siguiente nombre: ");
-			 nombre = sc.next();
-		 }while(!nombre.equals(null) || !nombre.equals("\n"));
+			 nombre = sc.nextLine();
+		 }while(!nombre.equals(""));
 		 sc.close();
 		 System.out.println("La lista completa es:\n");
 		 while (!cola.esVacia()) {

@@ -84,6 +84,17 @@ public class Pila<TipoDeDato> implements InterfazPila<TipoDeDato> {
 		} catch (Exception e) {
 			System.out.println("Error al reemplazar los valores. " + e.getMessage());
 		}
-	}    
+	}  
+	public void mover(int n, Pila<TipoDeDato> org, int origen, Pila<TipoDeDato> aux, int auxiliar, Pila<TipoDeDato> dest, int destino){
+		TipoDeDato disco;
+		if (n > 0) {
+			mover(n-1, org, origen, dest, destino, aux, auxiliar);
+			disco = org.desapilar();
+			dest.apilar(disco);
+			System.out.println("Mov. "+ disco +" de "+ origen +" a "+destino);
+			mover(n-1, aux, auxiliar, org, origen, dest, destino);
+		}
+	}
         
 }
+

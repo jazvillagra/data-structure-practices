@@ -78,7 +78,7 @@ public class Pila<TipoDeDato> implements InterfazPila<TipoDeDato> {
                 	aux.apilar(act);
                 }
             }
-            while (!aux.esVacia()) {
+            while (!aux.esVacia()){
 				this.apilar(aux.desapilar());
 			}
 		} catch (Exception e) {

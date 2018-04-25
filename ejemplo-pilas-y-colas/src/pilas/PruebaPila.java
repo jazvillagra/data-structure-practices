@@ -24,6 +24,16 @@ public class PruebaPila {
             while (!pilaStr.esVacia()) {
                 System.out.println("Valor : " + pilaStr.desapilar());
             }
+            
+            //test de metodo de reemplazo
+            pilaStr.apilar("a");
+            pilaStr.apilar("b");
+            pilaStr.apilar("c");
+            pilaStr.reemplazar("a","d");
+            System.out.println("\nLa lista con el valor reemplazado es: ");
+            while (!pilaStr.esVacia()) {
+                System.out.println("Valor : " + pilaStr.desapilar());
+            }
         } catch (Exception e) {
             System.out.println("Error al ejecutar el programa. " + e.getMessage());
         }

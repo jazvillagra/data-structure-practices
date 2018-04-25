@@ -14,4 +14,6 @@ public interface InterfazPila<TipoDeDato> {
         
     public boolean esVacia();
     
+    public void reemplazar(TipoDeDato valorViejo, TipoDeDato valorNuevo);
+    
 }

@@ -63,6 +63,27 @@ public class Pila<TipoDeDato> implements InterfazPila<TipoDeDato> {
         } else {
             return false;
         }
-    }    
+    }
+
+	@Override
+	public void reemplazar(TipoDeDato valorViejo, TipoDeDato valorNuevo) {
+		TipoDeDato act = null;
+		Pila<TipoDeDato> aux = new Pila<TipoDeDato>();
+		try {
+            while (!this.esVacia()) {
+                act = this.desapilar();
+                if(act.equals(valorViejo)){
+                	aux.apilar(valorNuevo);
+                }else{
+                	aux.apilar(act);
+                }
+            }
+            while (!aux.esVacia()) {
+				this.apilar(aux.desapilar());
+			}
+		} catch (Exception e) {
+			System.out.println("Error al reemplazar los valores. " + e.getMessage());
+		}
+	}    
         
 }

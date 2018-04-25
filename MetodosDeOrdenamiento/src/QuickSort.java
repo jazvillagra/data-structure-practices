@@ -2,14 +2,13 @@
 public class QuickSort {
 
 	public static int[] quicksort(int[] array, int first, int last){
-		//Elegimos el pivote
-		
+		//Elegimos el pivote	
 		int pivote=(array[first]+array[last])/2;
 		int i=first;
 		int j=last;
 		//iteramos hasta que i no sea mayor que j
 		while(i<j){
-	        while (array[i] < pivote){
+			while (array[i] < pivote){
 	            //Incrementamos el índice
 	            i++;
 	        }
@@ -34,7 +33,7 @@ public class QuickSort {
 	    	   array = quicksort(array, first, j);
 	       }
 	       //si last es mayor que i mantenemos la recursividad
-	       if(array.length-1 > i){
+	       if(last > i){
 	    	   array = quicksort(array, i, last);
 	       }
 	       //devolvemos la lista ordenada
@@ -46,7 +45,7 @@ public class QuickSort {
 	
 	
 	public static void main(String[] args) {
-		int[] Array={2,6,4,8,4,9,1,6,45,23,87,546,7,2,56,21,12,14,1,5,89,90};
+		int[] Array={2,6,4,8,4,9,1,6,1,23,87,546,7,2,56,21,12,14,1,5,89,90};
 		int first=0;
 		int last=Array.length-1;
 		Array=quicksort(Array,first,last);

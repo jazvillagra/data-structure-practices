@@ -20,7 +20,7 @@ public interface InterfazPila<TipoDeDato> {
      */
     public void reemplazar(TipoDeDato valorViejo, TipoDeDato valorNuevo);
 
-	void mover(int n, Pila<TipoDeDato> org, int origen, Pila<TipoDeDato> aux, int auxiliar, Pila<TipoDeDato> dest,
-			int destino);
+	void mover(int n, Pila<TipoDeDato> org, int origen, Pila<TipoDeDato> aux, int auxiliar,
+			Pila<TipoDeDato> dest, int destino);
     
 }

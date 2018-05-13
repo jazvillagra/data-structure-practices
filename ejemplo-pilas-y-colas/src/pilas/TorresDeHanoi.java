@@ -30,6 +30,7 @@ public class TorresDeHanoi {
 		while(!torres[2].esVacia()){
 			System.out.println("Disco " +torres[2].tamanoPila()+ ": " +torres[2].desapilar());
 		}
+		System.out.println("Cantidad de movimientos realizados: "+torres[1].getCantMovimientos());
 	}
 	
 

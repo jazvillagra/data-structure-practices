@@ -2,6 +2,7 @@ package pilas;
 
 public class NodoPila<TipoDeDato> {
     
+	int indice;
     TipoDeDato dato;
     NodoPila<TipoDeDato> siguiente;
 
@@ -32,5 +33,13 @@ public class NodoPila<TipoDeDato> {
     public void setSiguiente(NodoPila<TipoDeDato> siguiente) {
         this.siguiente = siguiente;
     }
+
+	public int getIndice() {
+		return indice;
+	}
+
+	public void setIndice(int indice) {
+		this.indice = indice;
+	}
     
 }

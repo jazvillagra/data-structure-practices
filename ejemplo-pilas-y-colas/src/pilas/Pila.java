@@ -4,6 +4,7 @@ public class Pila<TipoDeDato> implements InterfazPila<TipoDeDato> {
 
     private NodoPila<TipoDeDato> cabecera;
     private int tamanoPila;
+    private int cantMovimientos = 0;
     
     /**
      * Constructor de la clase, se inicializa la pila
@@ -14,7 +15,15 @@ public class Pila<TipoDeDato> implements InterfazPila<TipoDeDato> {
         cabecera.siguiente = null;
     }
     
-    @Override
+    public int getCantMovimientos() {
+		return cantMovimientos;
+	}
+
+	public void setCantMovimientos(int cantMovimientos) {
+		this.cantMovimientos = cantMovimientos+1;
+	}
+	
+	@Override
     public void apilar(TipoDeDato nuevoDato){
     	NodoPila<TipoDeDato> nuevoNodo = new NodoPila<>();
         nuevoNodo.dato = nuevoDato;
@@ -73,7 +82,7 @@ public class Pila<TipoDeDato> implements InterfazPila<TipoDeDato> {
 		TipoDeDato act = null;
 		Pila<TipoDeDato> aux = new Pila<TipoDeDato>();
 		try {
-            while (!this.esVacia()) {
+           while (!this.esVacia()) {
                 act = this.desapilar();
                 if(act.equals(valorViejo)){
                 	aux.apilar(valorNuevo);
@@ -99,7 +108,8 @@ public class Pila<TipoDeDato> implements InterfazPila<TipoDeDato> {
 			mover(n-1, org, origen, dest, destino, aux, auxiliar);
 			disco = org.desapilar();
 			dest.apilar(disco);
-			System.out.println("Mov. "+ disco +" de "+ origen +" a "+destino);
+			setCantMovimientos(cantMovimientos);
+			System.out.println("Moviendo "+ disco +" de "+origen+" a "+destino);
 			mover(n-1, aux, auxiliar, org, origen, dest, destino);
 		}
 	}

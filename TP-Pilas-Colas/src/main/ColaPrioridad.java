@@ -12,18 +12,18 @@ public class ColaPrioridad<TipoDeDato> implements InterfazColaPrioridad {
 	}
 	
 	@Override
-	public void agregarCliente(String nombre, int antig, String motivo, LocalDate ld) {
+	public void agregarCliente(String nombre, int antig, String motivo, LocalDate ld, char prioridad) {
 		// TODO Auto-generated method stub
 		NodoColaPrioridad <TipoDeDato> nuevoNodo= new NodoColaPrioridad<>();
 		
-		switch (motivo) {
-		case "A":
+		switch (prioridad) {
+		case 'A':
 			nuevoNodo.queja.encolar(nombre, antig, motivo, ld);
 			break;
-		case "M":
+		case 'M':
 			nuevoNodo.compra.encolar(nombre, antig, motivo, ld);
 			break;
-		case "B":
+		case 'B':
 			nuevoNodo.consulta.encolar(nombre, antig, motivo, ld);
 			break;
 		default:

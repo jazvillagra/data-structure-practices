@@ -4,6 +4,7 @@ public class NodoColaPrioridad<TipoDeDato> {
 	ColaSimple compra;
 	ColaSimple consulta;
 	ColaSimple queja;
+	NodoColaPrioridad nodoSiguiente;
 	
 	/**
 	 * @return the compra
@@ -45,6 +46,20 @@ public class NodoColaPrioridad<TipoDeDato> {
 	 */
 	public void setQueja(ColaSimple queja) {
 		this.queja = queja;
+	}
+
+	/**
+	 * @return the nodoSiguiente
+	 */
+	public NodoColaPrioridad getNodoSiguiente() {
+		return nodoSiguiente;
+	}
+
+	/**
+	 * @param nodoSiguiente the nodoSiguiente to set
+	 */
+	public void setNodoSiguiente(NodoColaPrioridad nodoSiguiente) {
+		this.nodoSiguiente = nodoSiguiente;
 	}
 	
 }

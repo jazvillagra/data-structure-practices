@@ -27,15 +27,32 @@ public class ColaPrioridad<TipoDeDato> implements InterfazColaPrioridad {
 			nuevoNodo.consulta.encolar(nombre, antig, motivo, ld);
 			break;
 		default:
-			System.out.println("Motivo no reconocido. Favor intente registrar al cliente nuevamente");
+			System.out.println("Prioridad no reconocida. Favor intente registrar al cliente nuevamente");
 			break;
 		}
 	}
 
 	@Override
-	public String atenderCliente() {
-		// TODO Auto-generated method stub
-		return null;
+	public String atenderCliente(char prioridad) {
+		String ret = null;
+        switch (prioridad) {
+		case 'A':
+			ret = initColaPrioridad.queja.desencolar();
+            initColaPrioridad = initColaPrioridad.nodoSiguiente;
+			break;
+		case 'M':
+			ret = initColaPrioridad.compra.desencolar();
+            initColaPrioridad = initColaPrioridad.nodoSiguiente;
+			break;
+		case 'B':
+			ret = initColaPrioridad.consulta.desencolar();
+            initColaPrioridad = initColaPrioridad.nodoSiguiente;
+			break;
+		default:
+			System.out.println("No existen clientes con prioridad "+ prioridad);
+			break;
+		}
+        return ret;
 	}
 
 }

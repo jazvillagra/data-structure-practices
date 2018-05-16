@@ -1,10 +1,11 @@
 package main;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class NodoColaSimple<TipoDeDato> {
 	String nombre;
-	int antig;
+	Date antig;
 	String motivo;
 	LocalDate ld = LocalDate.now();
 	NodoColaSimple<TipoDeDato> nodoSiguiente;
@@ -26,14 +27,14 @@ public class NodoColaSimple<TipoDeDato> {
 	/**
 	 * @return the antig
 	 */
-	public int getAntig() {
+	public Date getAntig() {
 		return antig;
 	}
 	
 	/**
 	 * @param antig the antig to set
 	 */
-	public void setAntig(int antig) {
+	public void setAntig(Date antig) {
 		this.antig = antig;
 	}
 	

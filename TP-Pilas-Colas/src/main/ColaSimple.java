@@ -1,6 +1,7 @@
 package main;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class ColaSimple<TipoDeDato> implements InterfazColaSimple{
 	
@@ -15,7 +16,7 @@ public class ColaSimple<TipoDeDato> implements InterfazColaSimple{
     }
 
 	@Override
-	public void encolar(String nombre, int antig, String motivo, LocalDate ld) {
+	public void encolar(String nombre, Date antig, String motivo, LocalDate ld) {
 		NodoColaSimple<TipoDeDato> nuevoNodo = new NodoColaSimple<>();
 		nuevoNodo.nombre=nombre;
 		nuevoNodo.antig=antig;

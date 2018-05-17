@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class NodoColaSimple<TipoDeDato> {
 	String nombre;
-	Date antig;
+	int antig;
 	String motivo;
 	LocalDate ld = LocalDate.now();
 	NodoColaSimple<TipoDeDato> nodoSiguiente;
@@ -27,14 +27,14 @@ public class NodoColaSimple<TipoDeDato> {
 	/**
 	 * @return the antig
 	 */
-	public Date getAntig() {
+	public int getAntig() {
 		return antig;
 	}
 	
 	/**
 	 * @param antig the antig to set
 	 */
-	public void setAntig(Date antig) {
+	public void setAntig(int antig) {
 		this.antig = antig;
 	}
 	

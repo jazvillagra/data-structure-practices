@@ -17,14 +17,11 @@ public class TestColaPrioridad {
 //			  Date today = new Date();
 //			  Date todayWithZeroTime = formatter.parse(formatter.format(today));
 				LocalDate ld = LocalDate.now();
-				Date antig=new Date(2010-12-10);
-				cola.agregarCliente("Juan", antig, "Defecto", ld, 'A'); 
-				Date antig2=new Date(2010-12-11);
+				cola.agregarCliente("Juan", 2, "Defecto", ld, 'A');
 				LocalDate ld2 = LocalDate.now();
-				cola.agregarCliente("Juan", antig2, "Defecto", ld2, 'A'); 
-				Date antig3=new Date(2010-12-12);
+				cola.agregarCliente("Juan", 7, "Defecto", ld2, 'A'); 
 				LocalDate ld3 = LocalDate.now();
-				cola.agregarCliente("Juan", antig3, "Defecto", ld3, 'A'); 
+				cola.agregarCliente("Juan", 4, "Defecto", ld3, 'A'); 
 	            int n = 3;
 	            for (int i=1; i<=n; i++) {
 	                System.out.println("Valor " + i + ": " + cola.atenderCliente('A'));

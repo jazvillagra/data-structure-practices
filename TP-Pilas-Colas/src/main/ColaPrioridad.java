@@ -13,7 +13,7 @@ public class ColaPrioridad<TipoDeDato> implements InterfazColaPrioridad {
 	}
 	
 	@Override
-	public void agregarCliente(String nombre, Date antig, String motivo, LocalDate ld, char prioridad) {
+	public void agregarCliente(String nombre, int antig, String motivo, LocalDate ld, char prioridad) {
 		// TODO Auto-generated method stub
 		NodoColaPrioridad <TipoDeDato> nuevoNodo= new NodoColaPrioridad<>();
 		

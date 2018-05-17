@@ -28,8 +28,9 @@ public class Cola<TipoDeDato> implements InterfazCola<TipoDeDato> {
             finCola.siguiente = nuevoNodo;
             finCola = nuevoNodo;
         }
-
         tamanoCola = tamanoCola + 1;
+
+        System.out.println("\n Tamaño de cola: "+tamanoCola);
     }
 
     @Override

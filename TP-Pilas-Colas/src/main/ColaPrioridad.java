@@ -4,8 +4,8 @@ import java.time.LocalDate;
 import java.util.Date;
 
 public class ColaPrioridad<TipoDeDato> implements InterfazColaPrioridad {
-	private NodoColaPrioridad initColaPrioridad;
-	private NodoColaPrioridad finColaPrioridad;
+	private NodoColaPrioridad<TipoDeDato> initColaPrioridad;
+	private NodoColaPrioridad<TipoDeDato> finColaPrioridad;
 	
 	public ColaPrioridad(){
 		initColaPrioridad=null;

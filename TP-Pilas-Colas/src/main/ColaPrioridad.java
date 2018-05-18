@@ -1,21 +1,15 @@
 package main;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class ColaPrioridad<TipoDeDato> implements InterfazColaPrioridad {
-	private NodoColaPrioridad<TipoDeDato> initColaPrioridad;
-	private NodoColaPrioridad<TipoDeDato> finColaPrioridad;
 	//Este nodo es unico, no es necesario que al agregar un nuevo cliente se agregue un nuevo nodo
 	NodoColaPrioridad <TipoDeDato> nodoCola= new NodoColaPrioridad<>();
 
-	public ColaPrioridad(){
-		initColaPrioridad=null;
-		finColaPrioridad=null;
-	}
 	
 	@Override
-	public void agregarCliente(String nombre, int antig, String motivo, LocalDate ld, char prioridad) {
+	public void agregarCliente(String nombre, int antig, String motivo, LocalDateTime ld, char prioridad) {
 		// TODO Auto-generated method stub		
 		switch (prioridad) {
 		case 'A':

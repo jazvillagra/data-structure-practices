@@ -1,15 +1,18 @@
 package main;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class NodoColaSimple<TipoDeDato> {
 	String nombre;
 	int antig;
 	String motivo;
-	LocalDate ld = LocalDate.now();
+	LocalDateTime ld;
 	NodoColaSimple<TipoDeDato> nodoSiguiente;
-	
+	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+	String date;
 	/**
 	 * @return the nombre
 	 */
@@ -55,14 +58,14 @@ public class NodoColaSimple<TipoDeDato> {
 	/**
 	 * @return the ld
 	 */
-	public LocalDate getLd() {
+	public LocalDateTime getLd() {
 		return ld;
 	}
 	
 	/**
 	 * @param ld the ld to set
 	 */
-	public void setLd(LocalDate ld) {
+	public void setLd(LocalDateTime ld) {
 		this.ld = ld;
 	}
 	
@@ -79,4 +82,13 @@ public class NodoColaSimple<TipoDeDato> {
 	public void setNodoSiguiente(NodoColaSimple<TipoDeDato> nodoSiguiente) {
 		this.nodoSiguiente = nodoSiguiente;
 	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDateTime ld) {
+		this.date = dtf.format(ld);;
+	}
+	
 }

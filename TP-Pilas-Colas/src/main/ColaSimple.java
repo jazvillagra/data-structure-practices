@@ -1,6 +1,6 @@
 package main;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class ColaSimple<TipoDeDato> implements InterfazColaSimple{
@@ -15,17 +15,18 @@ public class ColaSimple<TipoDeDato> implements InterfazColaSimple{
     }
 
 	@Override
-	public void encolar(String nombre, int antig, String motivo, LocalDate ld) {
+	public void encolar(String nombre, int antig, String motivo, LocalDateTime ld) {
 
 		NodoColaSimple<TipoDeDato> nuevoNodo = new NodoColaSimple<>();
 		nuevoNodo.nombre=nombre;
 		System.out.println("Nombre guardado: "+nuevoNodo.getNombre());
 		nuevoNodo.antig=antig;
-		System.out.println("Antig guardada: "+nuevoNodo.getAntig());
+		System.out.println("Antigüedad en años: "+nuevoNodo.getAntig());
 		nuevoNodo.motivo=motivo;
-		System.out.println("Motivo guardado: "+nuevoNodo.getMotivo());
+		System.out.println("Motivo de visita: "+nuevoNodo.getMotivo());
 		nuevoNodo.ld=ld;
-		System.out.println("LocalDate guardado: "+nuevoNodo.getLd());
+		nuevoNodo.setDate(ld);
+		System.out.println("Fecha y Hora: "+nuevoNodo.getDate());
 		
 		if (esVacia()) {
 			System.out.println("Entro al if");

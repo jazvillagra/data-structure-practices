@@ -6,7 +6,9 @@ import java.util.Date;
 public class ColaPrioridad<TipoDeDato> implements InterfazColaPrioridad {
 	private NodoColaPrioridad<TipoDeDato> initColaPrioridad;
 	private NodoColaPrioridad<TipoDeDato> finColaPrioridad;
-	
+	//Este nodo es unico, no es necesario que al agregar un nuevo cliente se agregue un nuevo nodo
+	NodoColaPrioridad <TipoDeDato> nodoCola= new NodoColaPrioridad<>();
+
 	public ColaPrioridad(){
 		initColaPrioridad=null;
 		finColaPrioridad=null;
@@ -14,23 +16,22 @@ public class ColaPrioridad<TipoDeDato> implements InterfazColaPrioridad {
 	
 	@Override
 	public void agregarCliente(String nombre, int antig, String motivo, LocalDate ld, char prioridad) {
-		// TODO Auto-generated method stub
-		NodoColaPrioridad <TipoDeDato> nuevoNodo= new NodoColaPrioridad<>();
-		
+		// TODO Auto-generated method stub		
 		switch (prioridad) {
 		case 'A':
-			nuevoNodo.queja.encolar(nombre, antig, motivo, ld);
+			nodoCola.queja.encolar(nombre, antig, motivo, ld);
 			break;
 		case 'M':
-			nuevoNodo.compra.encolar(nombre, antig, motivo, ld);
+			nodoCola.compra.encolar(nombre, antig, motivo, ld);
 			break;
 		case 'B':
-			nuevoNodo.consulta.encolar(nombre, antig, motivo, ld);
+			nodoCola.consulta.encolar(nombre, antig, motivo, ld);
 			break;
 		default:
 			System.out.println("Prioridad no reconocida. Favor intente registrar al cliente nuevamente");
 			break;
 		}
+		
 	}
 
 	@Override
@@ -38,16 +39,13 @@ public class ColaPrioridad<TipoDeDato> implements InterfazColaPrioridad {
 		String ret = null;
         switch (prioridad) {
 		case 'A':
-			ret = initColaPrioridad.queja.desencolar();
-            initColaPrioridad = initColaPrioridad.nodoSiguiente;
+			ret = nodoCola.queja.desencolar();
 			break;
 		case 'M':
-			ret = initColaPrioridad.compra.desencolar();
-            initColaPrioridad = initColaPrioridad.nodoSiguiente;
+			ret = nodoCola.compra.desencolar();
 			break;
 		case 'B':
-			ret = initColaPrioridad.consulta.desencolar();
-            initColaPrioridad = initColaPrioridad.nodoSiguiente;
+			ret = nodoCola.consulta.desencolar();
 			break;
 		default:
 			System.out.println("No existen clientes con prioridad "+ prioridad);

@@ -28,23 +28,23 @@ public class ColaSimple<TipoDeDato> implements InterfazColaSimple{
 		System.out.println("LocalDate guardado: "+nuevoNodo.getLd());
 		
 		if (esVacia()) {
-			System.out.println("Entro al if\n");
+			System.out.println("Entro al if");
             initColaSimple = nuevoNodo;
             finColaSimple = nuevoNodo;
         } else {
-        	System.out.println("Entro al else\n");
+        	System.out.println("Entro al else");
             finColaSimple.nodoSiguiente = nuevoNodo;
             finColaSimple = nuevoNodo;
         }
         tamCola = tamCola + 1;
-        System.out.println("Tamaño de cola: "+tamCola);
+        System.out.println("Tamaño de cola: "+tamCola+"\n");
 	}
 
 	@Override
 	public String desencolar() {
 		String ret = null;
         if (!esVacia()) {
-            ret = initColaSimple.nombre;
+            ret = initColaSimple.getNombre();
             initColaSimple = initColaSimple.nodoSiguiente;
             tamCola = tamCola - 1;
         }

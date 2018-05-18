@@ -22,9 +22,18 @@ public class TestColaPrioridad {
 				cola.agregarCliente("Maria",3, "Defecto", ld2, 'A'); 
 				LocalDate ld3 = LocalDate.now();
 				cola.agregarCliente("Carmen", 5, "Defecto", ld3, 'A'); 
-	            int n = 3;
-	            for (int i=1; i<=n; i++) {
+				
+				cola.agregarCliente("BCD", 5, "Defecto", ld3, 'M'); 
+				cola.agregarCliente("EFG", 5, "Defecto", ld3, 'M'); 
+
+	            int n= cola.nodoCola.getQueja().tamCola;
+	            for (int i=0; i<n; i++) {
 	                System.out.println("Valor " + i + ": " + cola.atenderCliente('A'));
+	            }
+	            System.out.println("\n");
+	            n= cola.nodoCola.getCompra().tamCola;
+	            for (int i=0; i<n; i++) {
+	                System.out.println("Valor " + i + ": " + cola.atenderCliente('M'));
 	            }
 		  }catch (Exception e) {
 			  

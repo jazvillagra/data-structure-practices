@@ -25,19 +25,16 @@ public class ColaSimple<TipoDeDato> implements InterfazColaSimple{
 		System.out.println("Motivo de visita: "+nuevoNodo.getMotivo());
 		nuevoNodo.ld=ld;
 		nuevoNodo.setDate(ld);
-		System.out.println("Fecha y Hora: "+nuevoNodo.getDate());
+		System.out.println("Fecha y Hora: "+nuevoNodo.getDate()+"\n");
 		
 		if (esVacia()) {
-			System.out.println("Entro al if");
             initColaSimple = nuevoNodo;
             finColaSimple = nuevoNodo;
         } else {
-        	System.out.println("Entro al else");
             finColaSimple.nodoSiguiente = nuevoNodo;
             finColaSimple = nuevoNodo;
         }
         tamCola = tamCola + 1;
-        System.out.println("Tamaño de cola: "+tamCola+"\n");
 	}
 
 	@Override

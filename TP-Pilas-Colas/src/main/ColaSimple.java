@@ -1,7 +1,6 @@
 package main;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class ColaSimple<TipoDeDato> implements InterfazColaSimple{
 	

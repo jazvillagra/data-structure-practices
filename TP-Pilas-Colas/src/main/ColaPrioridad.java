@@ -1,7 +1,11 @@
 package main;
 
 import java.time.LocalDateTime;
-
+/**
+ * 
+ * @author jvillagra, mfare, jheisecke
+ *
+ */
 public class ColaPrioridad<TipoDeDato> implements InterfazColaPrioridad {
 	
 	//Este nodo es unico, no es necesario que al agregar un nuevo cliente se agregue un nuevo nodo

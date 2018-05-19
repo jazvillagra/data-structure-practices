@@ -2,7 +2,12 @@ package main;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
+/**
+ * 
+ * @author jvillagra, mfare, jheisecke
+ *
+ * @param <TipoDeDato>
+ */
 public class NodoColaSimple<TipoDeDato> {
 	String nombre;
 	int antig;

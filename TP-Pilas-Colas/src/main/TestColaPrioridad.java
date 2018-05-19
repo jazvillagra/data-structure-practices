@@ -1,7 +1,11 @@
 package main;
 
 import java.time.LocalDateTime;
-
+/**
+ * 
+ * @author jvillagra, mfare, jheisecke
+ *
+ */
 public class TestColaPrioridad {
 
 	public static void main(String[] args) {

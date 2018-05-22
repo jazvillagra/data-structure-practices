@@ -1,8 +1,11 @@
 package main;
 
-import java.time.LocalDate;
-import java.util.Date;
-
+import java.time.LocalDateTime;
+/**
+ * 
+ * @author jvillagra, mfare, jheisecke
+ *
+ */
 public class ColaSimple<TipoDeDato> implements InterfazColaSimple{
 	
 	private NodoColaSimple<TipoDeDato> initColaSimple;
@@ -15,29 +18,27 @@ public class ColaSimple<TipoDeDato> implements InterfazColaSimple{
     }
 
 	@Override
-	public void encolar(String nombre, int antig, String motivo, LocalDate ld) {
+	public void encolar(String nombre, int antig, String motivo, LocalDateTime ld) {
 
 		NodoColaSimple<TipoDeDato> nuevoNodo = new NodoColaSimple<>();
 		nuevoNodo.nombre=nombre;
 		System.out.println("Nombre guardado: "+nuevoNodo.getNombre());
 		nuevoNodo.antig=antig;
-		System.out.println("Antig guardada: "+nuevoNodo.getAntig());
+		System.out.println("Antigüedad en años: "+nuevoNodo.getAntig());
 		nuevoNodo.motivo=motivo;
-		System.out.println("Motivo guardado: "+nuevoNodo.getMotivo());
+		System.out.println("Motivo de visita: "+nuevoNodo.getMotivo());
 		nuevoNodo.ld=ld;
-		System.out.println("LocalDate guardado: "+nuevoNodo.getLd());
+		nuevoNodo.setDate(ld);
+		System.out.println("Fecha y Hora: "+nuevoNodo.getDate()+"\n");
 		
 		if (esVacia()) {
-			System.out.println("Entro al if");
             initColaSimple = nuevoNodo;
             finColaSimple = nuevoNodo;
         } else {
-        	System.out.println("Entro al else");
             finColaSimple.nodoSiguiente = nuevoNodo;
             finColaSimple = nuevoNodo;
         }
         tamCola = tamCola + 1;
-        System.out.println("Tamaño de cola: "+tamCola+"\n");
 	}
 
 	@Override

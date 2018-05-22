@@ -1,5 +1,9 @@
 package main;
-
+/**
+ * 
+ * @author jvillagra, mfare, jheisecke
+ *
+ */
 public class NodoColaPrioridad<TipoDeDato> {
 	ColaSimple<TipoDeDato> compra = new ColaSimple<>();
 	ColaSimple<TipoDeDato> consulta = new ColaSimple<>();

@@ -53,4 +53,24 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 			return privBuscar(N.getDer(), x);
 		}
 	}
+	
+	
+	//Metodo que hace falta arreglar para poder implementar, retorna la profunidad del nodo
+	public int maxDepth(NodoBinario<Tipo> node) 
+    {
+        if (node == null)
+            return 0;
+        else
+        {
+            /* compute the depth of each subtree */
+            int lDepth = maxDepth(node.getIzq());
+            int rDepth = maxDepth(node.getDer());
+  
+            /* use the larger one */
+            if (lDepth > rDepth)
+                return (lDepth + 1);
+             else
+                return (rDepth + 1);
+        }
+    }
 }

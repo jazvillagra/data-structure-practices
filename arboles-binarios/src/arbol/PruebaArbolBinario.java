@@ -2,7 +2,7 @@ package arbol;
 
 public class PruebaArbolBinario {
 	public static void main(String [] args) {
-		ArbolBinario <Integer> ab = new ArbolBinario();
+		ArbolBinario <Integer> ab = new ArbolBinario<Integer>();
 		
 		ab.insertar(6);
 		ab.insertar(4);
@@ -11,6 +11,7 @@ public class PruebaArbolBinario {
 		ab.insertar(1);
 		ab.insertar(10);
 		ab.insertar(5);
+		ab.insertar(9);
 		NodoBinario<Integer> nodo = ab.buscar(4);
 		if(nodo != null){
 			System.out.println("Existe el valor "+nodo.getDato()+" en el arbol.\n");
@@ -30,7 +31,6 @@ public class PruebaArbolBinario {
 		ab.recorridoPreOrden();
 		ab.recorridoEnOrden();
 		ab.recorridoPostOrden();
-
-       
+		
 	}
 }

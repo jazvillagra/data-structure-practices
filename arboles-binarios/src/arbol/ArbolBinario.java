@@ -176,25 +176,6 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 			return privBuscar(N.getDer(), x);
 		}
 	}
-	
-	
-	//Metodo que hace falta arreglar para poder implementar, retorna la profunidad del nodo
-	public int maxDepth(NodoBinario<TipoDeDato> node){
-		if (node == null) {
-			return 0;
-		} else {
-			/* compute the depth of each subtree */
-			int lDepth = maxDepth(node.getIzq());
-			int rDepth = maxDepth(node.getDer());
-
-			/* use the larger one */
-			if (lDepth > rDepth) {
-				return (lDepth + 1);
-			} else {
-				return (rDepth + 1);
-			}
-		}
-	}
 
     public TipoDeDato getMinimo(NodoBinario<TipoDeDato> nodoActual) {
         if (nodoActual == null) {
@@ -250,23 +231,21 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 		return resp;
     }    
     
-    public int getGrado(TipoDeDato dato){
+    public void getGrado(TipoDeDato dato){
     	System.out.println("\nGrado de: "+dato);
-    		return privGetGrado(raiz,dato);  	
+    	privGetGrado(raiz,dato);  	
     }  
-    public int privGetGrado(NodoBinario<TipoDeDato> actual,TipoDeDato dato){		
-		if(actual==null){
-			return -1;
-		}else if(dato.compareTo(actual.getDato()) == 0) {
+    public void privGetGrado(NodoBinario<TipoDeDato> actual,TipoDeDato dato){		
+    	if(dato.compareTo(actual.getDato()) == 0) {
 			if(actual.getDer()!=null && actual.getIzq()!=null){
-				System.out.println("\nHijos: "+actual.getDer().getDato()+actual.getIzq().getDato());
-				return 2;
+				System.out.println(2);
+				System.out.println("\nHijos: "+actual.getDer().getDato()+" y "+actual.getIzq().getDato());				
 			}else if(actual.getDer()!=null || actual.getIzq()!=null){
+				System.out.println(1);
 				if(actual.getDer().getDato()==null) System.out.println("\nHijo: "+actual.getIzq().getDato());
 				else System.out.println("\nHijo: "+actual.getDer().getDato());
-				return 1;
 			}else{
-				return 0;
+				System.out.println(0);
 			}
 		}else if(dato.compareTo(actual.getDato()) < 0){
 			privGetGrado(actual.getIzq(), dato);
@@ -277,7 +256,6 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 		
 			//y si aun no se encontro, resta buscar en los hermanos del nodo
 		}
-		return 0;
     }    
     
     

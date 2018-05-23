@@ -37,7 +37,12 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 		privRecorridoAmplitud(raiz,0);
 		System.out.println();
 	}
-
+	
+	public int getAltura(NodoBinario<TipoDeDato> nodo, TipoDeDato valor){
+		System.out.println("Impresion de la altura del dato: ");
+		return privGetAltura(nodo, valor);
+	}
+	
 	public void eliminar(TipoDeDato elimin) {
         raiz = privEliminar(raiz, elimin);
 	}
@@ -46,11 +51,7 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 		System.out.println("Sus descendientes son: ");
 		privGetDescendientes(nodoRaiz, valor);
 	}
-	
-	public int getAltura(NodoBinario<TipoDeDato> nodo, TipoDeDato valor){
-		System.out.println("Impresion de la altura del dato: ");
-		return privGetAltura(nodo, valor);
-	}
+
 	
 	private void privGetDescendientes(NodoBinario<TipoDeDato> nodoActual, TipoDeDato valor) {
 		
@@ -298,4 +299,29 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 		}
 		return alturaNodo;
     }
+    
+	public int getTam(NodoBinario<TipoDeDato> nodoRaiz, TipoDeDato valor){
+		System.out.println("Su tamaño es: ");
+		return privGetTam(nodoRaiz, valor);
+	}
+
+	
+	private int privGetTam(NodoBinario<TipoDeDato> nodoActual, TipoDeDato valor) {
+		int cont=0;
+		if (nodoActual != null) {
+			// procesa subarbol izquierdo
+			privGetDescendientes(nodoActual.getIzq(), valor);
+			// procesa subarbol derecho
+			privGetDescendientes(nodoActual.getDer(), valor);
+			// procesa nodo
+			if(nodoActual.getDato().compareTo(valor)!=0){
+				cont++;
+			}
+		}
+		return cont;
+	}
+    
+    
+    
+    
 }

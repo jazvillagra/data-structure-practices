@@ -18,6 +18,10 @@ public class PruebaArbolBinario {
 			System.out.println("No existe");
 		}*/
 		
+        //Imprimimos el nivel de un nodo ej el 8
+        System.out.print("\n");
+        System.out.println(ab.GetProfundidad(8)); 
+		
 		ab.recorridoAmplitud();
 		ab.recorridoPreOrden();
 		ab.recorridoEnOrden();

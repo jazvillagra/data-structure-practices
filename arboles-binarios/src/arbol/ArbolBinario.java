@@ -205,4 +205,36 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 
         }
     }
+    
+    public int GetProfundidad(TipoDeDato dato){
+    	System.out.println("\nImpresion del nivel del dato: "+dato);
+    		return privGetProfundidad(raiz,dato,0);  	
+    }   
+    
+    
+    public int privGetProfundidad(NodoBinario<TipoDeDato> visitado,TipoDeDato dato,int nivel){
+		int resp=0;
+		
+		if(visitado==null){
+			return resp;
+		}else if(dato.compareTo(visitado.getDato()) == 0) {
+			//encontramos el nodo
+			resp=nivel;
+		}else if(dato.compareTo(visitado.getDato()) < 0){
+			nivel=nivel+1;
+			resp=privGetProfundidad(visitado.getIzq(), dato, nivel++);
+		}else{
+			//aun no se encuentra el nodo, se busca recursivamente en cada
+			//arbol hijo de izquierda a derecha
+			nivel=nivel+1;
+			resp= privGetProfundidad(visitado.getDer(), dato, nivel++);
+		
+			//y si aun no se encontro, resta buscar en los hermanos del nodo
+		}
+		return resp;
+    }    
+    
+    
+    
+    
 }

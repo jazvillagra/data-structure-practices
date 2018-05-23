@@ -14,17 +14,14 @@ public class PruebaArbolBinario {
 		NodoBinario<Integer> nodo = ab.buscar(4);
 		if(nodo != null){
 			System.out.println("Existe el valor "+nodo.getDato()+" en el arbol.\n");
-			ab.getDescendientes(nodo);
+			ab.getDescendientes(nodo, nodo.getDato());
 			System.out.println("\n"+ab.getProfundidad(nodo.getDato())); 
 			ab.getGrado(nodo.getDato()); 
+			System.out.println("\n");
+			System.out.println(ab.getAltura(nodo, 4));
 		}else{
 			System.out.println("No existe");
 		}
-		
-        
-
-        
-
         //Imprimimos el nivel de un nodo ej el 8
         System.out.print("\n");
         System.out.println(ab.getProfundidad(8)); 

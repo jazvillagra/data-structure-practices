@@ -4,7 +4,8 @@ import bst.NodoBST;
 
 public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 	private NodoBinario<TipoDeDato> raiz;
-
+	private int alturaNodo;
+	
     public void insertar(TipoDeDato datoNuevo) {
         raiz= privInsertar(raiz, datoNuevo);
     }
@@ -41,19 +42,27 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
         raiz = privEliminar(raiz, elimin);
 	}
 	
-	public void getDescendientes(NodoBinario<TipoDeDato> nodoRaiz){
+	public void getDescendientes(NodoBinario<TipoDeDato> nodoRaiz, TipoDeDato valor){
 		System.out.println("Sus descendientes son: ");
-		privGetDescendientes(nodoRaiz);
+		privGetDescendientes(nodoRaiz, valor);
 	}
-	private void privGetDescendientes(NodoBinario<TipoDeDato> nodoActual) {
+	
+	public int getAltura(NodoBinario<TipoDeDato> nodo, TipoDeDato valor){
+		System.out.println("Impresion de la altura del dato: ");
+		return privGetAltura(nodo, valor);
+	}
+	
+	private void privGetDescendientes(NodoBinario<TipoDeDato> nodoActual, TipoDeDato valor) {
 		
 		if (nodoActual != null) {
 			// procesa subarbol izquierdo
-			privGetDescendientes(nodoActual.getIzq());
+			privGetDescendientes(nodoActual.getIzq(), valor);
 			// procesa subarbol derecho
-			privGetDescendientes(nodoActual.getDer());
+			privGetDescendientes(nodoActual.getDer(), valor);
 			// procesa nodo
-			System.out.print(nodoActual.dato + " ");
+			if(nodoActual.getDato().compareTo(valor)!=0){
+				System.out.print(nodoActual.dato + " ");
+			}
 		}
 	}
 
@@ -276,8 +285,17 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 			//y si aun no se encontro, resta buscar en los hermanos del nodo
 		}
     }  
-    
-    
-    
-    
+    private int privGetAltura(NodoBinario<TipoDeDato> nodoActual, TipoDeDato valor){
+		if(nodoActual!=null){
+			// procesa subarbol izquierdo
+			privGetAltura(nodoActual.getIzq(), valor);
+			// procesa subarbol derecho
+			privGetAltura(nodoActual.getDer(), valor);
+			// procesa nodo
+			if (nodoActual.getDato().compareTo(valor) != 0) {
+				alturaNodo++;
+			}
+		}
+		return alturaNodo;
+    }
 }

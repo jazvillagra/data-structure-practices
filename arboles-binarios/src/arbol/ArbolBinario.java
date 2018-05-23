@@ -234,7 +234,35 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 		return resp;
     }    
     
-    
+    public int getGrado(TipoDeDato dato){
+    	System.out.println("\nGrado de: "+dato);
+    		return privGetGrado(raiz,dato);  	
+    }  
+    public int privGetGrado(NodoBinario<TipoDeDato> actual,TipoDeDato dato){		
+		if(actual==null){
+			return -1;
+		}else if(dato.compareTo(actual.getDato()) == 0) {
+			if(actual.getDer()!=null && actual.getIzq()!=null){
+				System.out.println("\nHijos: "+actual.getDer().getDato()+actual.getIzq().getDato());
+				return 2;
+			}else if(actual.getDer()!=null || actual.getIzq()!=null){
+				if(actual.getDer().getDato()==null) System.out.println("\nHijo: "+actual.getIzq().getDato());
+				else System.out.println("\nHijo: "+actual.getDer().getDato());
+				return 1;
+			}else{
+				return 0;
+			}
+		}else if(dato.compareTo(actual.getDato()) < 0){
+			privGetGrado(actual.getIzq(), dato);
+		}else{
+			//aun no se encuentra el nodo, se busca recursivamente en cada
+			//arbol hijo de izquierda a derecha
+			privGetGrado(actual.getDer(), dato);
+		
+			//y si aun no se encontro, resta buscar en los hermanos del nodo
+		}
+		return 0;
+    }    
     
     
 }

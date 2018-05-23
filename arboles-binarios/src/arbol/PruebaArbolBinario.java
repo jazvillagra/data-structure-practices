@@ -11,12 +11,13 @@ public class PruebaArbolBinario {
 		ab.insertar(1);
 		ab.insertar(10);
 		ab.insertar(5);
-		/*NodoBinario<Integer> nodo = ab.buscar(6);
+		NodoBinario<Integer> nodo = ab.buscar(4);
 		if(nodo != null){
-			System.out.println("Existe");
+			System.out.println("Existe el valor "+nodo.getDato()+" en el arbol.\n");
+			ab.getDescendientes(nodo);
 		}else{
 			System.out.println("No existe");
-		}*/
+		}
 		
         //Imprimimos el nivel de un nodo ej el 8
         System.out.print("\n");

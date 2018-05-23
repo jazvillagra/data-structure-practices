@@ -8,8 +8,12 @@ public class PruebaArbolBinario {
 		ab.insertar(8);
 		ab.insertar(3);
 		ab.insertar(1);
-		NodoBinario<Integer> nodo = ab.buscar(9);
-		if(nodo != null) System.out.println("Existe");
+		NodoBinario<Integer> nodo = ab.buscar(8);
+		if(nodo != null){
+			System.out.println("Existe");
+		}else{
+			System.out.println("No existe");
+		}
 		
 		ab.recorridoAmplitud();
 		ab.recorridoEnOrden();

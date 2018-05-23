@@ -41,6 +41,22 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
         raiz = privEliminar(raiz, elimin);
 	}
 	
+	public void getDescendientes(NodoBinario<TipoDeDato> nodoRaiz){
+		System.out.println("Sus descendientes son: ");
+		privGetDescendientes(nodoRaiz);
+	}
+	private void privGetDescendientes(NodoBinario<TipoDeDato> nodoActual) {
+		
+		if (nodoActual != null) {
+			// procesa subarbol izquierdo
+			privGetDescendientes(nodoActual.getIzq());
+			// procesa subarbol derecho
+			privGetDescendientes(nodoActual.getDer());
+			// procesa nodo
+			System.out.print(nodoActual.dato + " ");
+		}
+	}
+
 	//recorre e imprime el arbol utilizando el recorrido pre-orden
 	private void privImprimirPreOrden(NodoBinario nodoActual) {
 		if (nodoActual != null) {

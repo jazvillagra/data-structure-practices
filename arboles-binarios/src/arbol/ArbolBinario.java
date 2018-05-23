@@ -176,7 +176,24 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 			return privBuscar(N.getDer(), x);
 		}
 	}
+	
+	//Metodo que hace falta arreglar para poder implementar, retorna la profunidad del nodo
+	public int maxDepth(NodoBinario<TipoDeDato> node){
+		if (node == null) {
+			return 0;
+		} else {
+			/* compute the depth of each subtree */
+			int lDepth = maxDepth(node.getIzq());
+			int rDepth = maxDepth(node.getDer());
 
+			/* use the larger one */
+			if (lDepth > rDepth) {
+				return (lDepth + 1);
+			} else {
+				return (rDepth + 1);
+			}
+		}
+	}
     public TipoDeDato getMinimo(NodoBinario<TipoDeDato> nodoActual) {
         if (nodoActual == null) {
             return null;
@@ -230,7 +247,7 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 		}
 		return resp;
     }    
-    
+   
     public void getGrado(TipoDeDato dato){
     	System.out.println("\nGrado de: "+dato);
     	privGetGrado(raiz,dato);  	
@@ -256,7 +273,5 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 		
 			//y si aun no se encontro, resta buscar en los hermanos del nodo
 		}
-    }    
-    
-    
+    }  
 }

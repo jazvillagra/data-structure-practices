@@ -21,9 +21,16 @@ public class PruebaArbolBinario {
 			System.out.println("No existe");
 		}
 		
+<<<<<<< HEAD
         
 
         
+=======
+        //Imprimimos el nivel de un nodo ej el 8
+        System.out.print("\n");
+        System.out.println(ab.getProfundidad(8)); 
+		
+>>>>>>> parent of ff42a10... Se halla la altura y los descendientes de un nodo
 		ab.recorridoAmplitud();
 		ab.recorridoPreOrden();
 		ab.recorridoEnOrden();

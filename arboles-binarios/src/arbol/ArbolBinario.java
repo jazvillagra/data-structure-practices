@@ -177,6 +177,7 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 		}
 	}
 	
+	
 	//Metodo que hace falta arreglar para poder implementar, retorna la profunidad del nodo
 	public int maxDepth(NodoBinario<TipoDeDato> node){
 		if (node == null) {
@@ -194,6 +195,7 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 			}
 		}
 	}
+
     public TipoDeDato getMinimo(NodoBinario<TipoDeDato> nodoActual) {
         if (nodoActual == null) {
             return null;
@@ -274,4 +276,8 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 			//y si aun no se encontro, resta buscar en los hermanos del nodo
 		}
     }  
+    
+    
+    
+    
 }

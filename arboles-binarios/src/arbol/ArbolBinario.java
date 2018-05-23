@@ -4,6 +4,7 @@ import bst.NodoBST;
 
 public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 	private NodoBinario<TipoDeDato> raiz;
+	private int alturaNodo;
 
     public void insertar(TipoDeDato datoNuevo) {
         raiz= privInsertar(raiz, datoNuevo);
@@ -41,19 +42,26 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
         raiz = privEliminar(raiz, elimin);
 	}
 	
-	public void getDescendientes(NodoBinario<TipoDeDato> nodoRaiz){
-		System.out.println("Sus descendientes son: ");
-		privGetDescendientes(nodoRaiz);
+	public int getAltura(NodoBinario<TipoDeDato> nodo, TipoDeDato valor){
+		System.out.println("Impresion del nivel del dato: ");
+		return privGetAltura(nodo, valor);
 	}
-	private void privGetDescendientes(NodoBinario<TipoDeDato> nodoActual) {
+	
+	public void getDescendientes(NodoBinario<TipoDeDato> nodoRaiz, TipoDeDato valor){
+		System.out.println("Sus descendientes son: ");
+		privGetDescendientes(nodoRaiz, valor);
+	}
+	private void privGetDescendientes(NodoBinario<TipoDeDato> nodoActual, TipoDeDato valor) {
 		
 		if (nodoActual != null) {
 			// procesa subarbol izquierdo
-			privGetDescendientes(nodoActual.getIzq());
+			privGetDescendientes(nodoActual.getIzq(), valor);
 			// procesa subarbol derecho
-			privGetDescendientes(nodoActual.getDer());
+			privGetDescendientes(nodoActual.getDer(), valor);
 			// procesa nodo
-			System.out.print(nodoActual.dato + " ");
+			if(nodoActual.getDato().compareTo(valor)!=0){
+				System.out.print(nodoActual.dato + " ");
+			}
 		}
 	}
 
@@ -176,27 +184,7 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 			return privBuscar(N.getDer(), x);
 		}
 	}
-	
-	
-	//Metodo que hace falta arreglar para poder implementar, retorna la profunidad del nodo
-	public int maxDepth(NodoBinario<TipoDeDato> node){
-		if (node == null) {
-			return 0;
-		} else {
-			/* compute the depth of each subtree */
-			int lDepth = maxDepth(node.getIzq());
-			int rDepth = maxDepth(node.getDer());
-
-			/* use the larger one */
-			if (lDepth > rDepth) {
-				return (lDepth + 1);
-			} else {
-				return (rDepth + 1);
-			}
-		}
-	}
-
-    public TipoDeDato getMinimo(NodoBinario<TipoDeDato> nodoActual) {
+	public TipoDeDato getMinimo(NodoBinario<TipoDeDato> nodoActual) {
         if (nodoActual == null) {
             return null;
 
@@ -249,8 +237,17 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 		}
 		return resp;
     }    
-    
-    
-    
+    private int privGetAltura(NodoBinario<TipoDeDato> nodoActual, TipoDeDato valor){
+		if(nodoActual!=null){// procesa subarbol izquierdo
+			privGetAltura(nodoActual.getIzq(), valor);
+			// procesa subarbol derecho
+			privGetAltura(nodoActual.getDer(), valor);
+			// procesa nodo
+			if (nodoActual.getDato().compareTo(valor) != 0) {
+				alturaNodo++;
+			}
+		}
+		return alturaNodo;
+    }
     
 }

@@ -5,12 +5,21 @@ public class NodoBinario<TipoDeDato extends Comparable> {
 	NodoBinario<TipoDeDato> izq;
 	NodoBinario<TipoDeDato> der;
 	
-	public NodoBinario(TipoDeDato dato) {
-		// TODO Auto-generated constructor stub
+	public NodoBinario() {
+        dato = null;
+        izq = null;
+        der= null;
+    }
+	public NodoBinario(TipoDeDato datoNuevo) {
+		dato = datoNuevo;
+        izq = null;
+        der = null;
 	}
 	
-	public NodoBinario(TipoDeDato dato, NodoBinario<TipoDeDato> i, NodoBinario<TipoDeDato> d) {
-		// TODO Auto-generated constructor stub
+	public NodoBinario(TipoDeDato datoNuevo, NodoBinario<TipoDeDato> i, NodoBinario<TipoDeDato> d) {
+		dato = datoNuevo;
+        izq = i;
+        der = d;
 	}
 
 	public TipoDeDato getDato() {

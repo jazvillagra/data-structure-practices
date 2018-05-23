@@ -3,36 +3,20 @@ package arbol;
 import bst.NodoBST;
 
 public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
-	private NodoBinario raiz;
-	
-	public ArbolBinario() {
-		raiz=null;
-	}
-	
-	public void insertar(TipoDeDato dato) {
-		raiz=privInsertar(raiz,dato);
-	}
+	private NodoBinario<TipoDeDato> raiz;
+
+    public void insertar(TipoDeDato datoNuevo) {
+        raiz= privInsertar(raiz, datoNuevo);
+    }
 	
 	public NodoBinario<TipoDeDato> buscar(TipoDeDato dato) {
 		return privBuscar(raiz, dato);
 	}
-
-	public void recorridoAmplitud() {
-		System.out.println("\nImpresion del arbol en amplitud");
-		privRecorridoAmplitud(raiz,0);
-		System.out.println();
-	}
-	private void privRecorridoAmplitud(NodoBinario nodoActual, int nivelNodoActual) {
-		if (nodoActual != null) {
-            privRecorridoAmplitud(nodoActual.getDer(), nivelNodoActual + 1);
-
-            for (int k = 0; k < nivelNodoActual; k++) {
-                System.out.print("\t");
-            }
-            System.out.println(nodoActual.getDato());
-
-            privRecorridoAmplitud(nodoActual.getIzq(), nivelNodoActual + 1);
-        }
+	
+	public void recorridoPreOrden() {
+		System.out.println("\nImpresion del arbol pre-orden:");
+        privImprimirPreOrden(raiz);
+        System.out.println();
 	}
 
 	public void recorridoEnOrden() {
@@ -40,6 +24,36 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
         privImprimirEnOrden(raiz);
         System.out.println();
 	}
+	
+	public void recorridoPostOrden() {
+		System.out.println("\nImpresion del arbol post-orden:");
+        privImprimirPostOrden(raiz);
+        System.out.println();
+	}
+
+	public void recorridoAmplitud() {
+		System.out.println("\nImpresion del arbol en amplitud");
+		privRecorridoAmplitud(raiz,0);
+		System.out.println();
+	}
+
+	public void eliminar(TipoDeDato elimin) {
+        raiz = privEliminar(raiz, elimin);
+	}
+	
+	//recorre e imprime el arbol utilizando el recorrido pre-orden
+	private void privImprimirPreOrden(NodoBinario nodoActual) {
+		if (nodoActual != null) {
+			// procesa nodo
+			System.out.print(nodoActual.dato + " ");
+			// procesa subarbol izquierdo
+			privImprimirPreOrden(nodoActual.getIzq());
+			// procesa subarbol derecho
+			privImprimirPreOrden(nodoActual.getDer());
+		}
+	}
+	
+	//recorre e imprime el arbol en orden 
 	private void privImprimirEnOrden(NodoBinario nodoActual) {
 		if (nodoActual != null) {
 			// procesa subarbol izquierdo
@@ -50,11 +64,34 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 			privImprimirEnOrden(nodoActual.getDer());
 		}
 	}
+	
+	//recorre e imprime el arbol utilizando el recorrido post-orden
+	private void privImprimirPostOrden(NodoBinario nodoActual) {
+		if (nodoActual != null) {
+			// procesa subarbol izquierdo
+			privImprimirPostOrden(nodoActual.getIzq());
+			// procesa subarbol derecho
+			privImprimirPostOrden(nodoActual.getDer());
+			// procesa nodo
+			System.out.print(nodoActual.dato + " ");
+		}
+	}
 
-	public void eliminar(TipoDeDato elimin) {
-        raiz = privEliminar(raiz, elimin);
+	// recorre e imprime el arbol por amplitud (por niveles)
+	private void privRecorridoAmplitud(NodoBinario nodoActual, int nivelNodoActual) {
+		if (nodoActual != null) {
+			privRecorridoAmplitud(nodoActual.getDer(), nivelNodoActual + 1);
+
+			for (int k = 0; k < nivelNodoActual; k++) {
+				System.out.print("\t");
+			}
+			System.out.println(nodoActual.getDato());
+
+			privRecorridoAmplitud(nodoActual.getIzq(), nivelNodoActual + 1);
+		}
 	}
 	
+	//elimina el nodo que contiene el dato ingresado por el usuario en PruebaArbolBinario
 	private NodoBinario<TipoDeDato> privEliminar(NodoBinario<TipoDeDato> nodoActual, TipoDeDato elimin) {
 		if(nodoActual==null){
 			return null;
@@ -80,24 +117,35 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
                 nodoActual.setIzq(eliminarMinimo(nodoActual.getDer()));
             }
 		}
-		return nodoActual;
-		
+		return nodoActual;	
 	}
-	
-	private NodoBinario privInsertar(NodoBinario<TipoDeDato> actual, TipoDeDato dato) {
+	//inserta un nuevo nodo al arbol binario
+	private NodoBinario<TipoDeDato> privInsertar(NodoBinario<TipoDeDato> actual, TipoDeDato datoNuevo) {
+		
 		NodoBinario<TipoDeDato> nuevoNodo;
-		if(actual==null) {
-			nuevoNodo = new NodoBinario<>(dato);
-			nuevoNodo.setDato(dato);
-			return nuevoNodo;
-		}else if (dato.compareTo(actual.getDato()) < 0) {
-			nuevoNodo = privInsertar(actual.getIzq(), dato);
-			actual.setIzq(nuevoNodo);
-		}else if (dato.compareTo(actual.getDato()) > 0) {
-			nuevoNodo = privInsertar(actual.getDer(), dato);
-			actual.setDer(nuevoNodo);
-		}
-		return actual;
+
+        if (actual == null) {
+            //ya llegamos a la hoja donde debe estar el nuevo valor, entonces se crea el nuevo nodo y se retorna la referencia
+            nuevoNodo = new NodoBinario<TipoDeDato>(datoNuevo);
+            return nuevoNodo;
+
+        } else if (datoNuevo.compareTo(actual.getDato()) < 0) {
+            //dato a insertar es menor que el nodo actual. Continua la insercion por la rama izquierda y se recibe como resultado la referencia al nuevo subarbol izquierdo
+            nuevoNodo = privInsertar(actual.getIzq(), datoNuevo);
+            actual.setIzq(nuevoNodo);
+
+        } else if (datoNuevo.compareTo(actual.getDato()) > 0) {
+            //dato a insertar es mayor que el nodo actual. Continua la insercion por la rama derecha y se recibe como resultado la referencia al nuevo subarbol derecho
+            nuevoNodo = privInsertar(actual.getDer(), datoNuevo);
+            actual.setDer(nuevoNodo);
+
+        } else {
+            //dato a insertar es igual a un nodo ya existente no se hace nada, solo un warning
+            System.out.println("\tAdvertencia: No se permiten repetidos en este BST! El valor " + datoNuevo + " ya existe.");
+        }
+
+        //se retorna la referencia al nodo actualmente visitado. Esto se hace para actualizar las referencias hacia arriba 
+        return actual;
 	}
 
 	private NodoBinario<TipoDeDato> privBuscar(NodoBinario<TipoDeDato> N, TipoDeDato x) {

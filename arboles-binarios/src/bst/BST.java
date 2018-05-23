@@ -27,7 +27,8 @@ public class BST<TipoDeDato extends Comparable<TipoDeDato>> {
             //ya llegamos a la hoja donde debe estar el nuevo valor
             //se crea el nuevo nodo y se retorna la referencia
             nuevoNodo = new NodoBST<>(datoNuevo);
-            return nuevoNodo;
+            nodoActual = nuevoNodo;
+            //return nuevoNodo;
 
         } else if (datoNuevo.compareTo(nodoActual.getDato()) < 0) {
             //dato a insertar es menor que el nodo actual

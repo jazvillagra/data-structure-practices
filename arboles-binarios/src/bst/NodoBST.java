@@ -6,11 +6,11 @@ public class NodoBST<TipoDeDato extends Comparable<TipoDeDato>> implements java.
     NodoBST<TipoDeDato> hijoIzquierdo;
     NodoBST<TipoDeDato> hijoDerecho;
 
-    public NodoBST() {
+    /*public NodoBST() {
         dato = null;
         hijoIzquierdo = null;
         hijoDerecho = null;
-    }
+    }*/
 
     public NodoBST(TipoDeDato valor) {
         dato = valor;

@@ -20,12 +20,13 @@ public class PruebaArbolBinario {
 			ab.getGrado(nodo.getDato()); 
 			System.out.println("\n");
 			System.out.println(ab.getAltura(nodo, 4));
+			System.out.println(ab.getTam(nodo,4)); 
 		}else{
 			System.out.println("No existe");
 		}
         //Imprimimos el nivel de un nodo ej el 8
         System.out.print("\n");
-        System.out.println(ab.getProfundidad(8)); 
+        
 		
 		ab.recorridoAmplitud();
 		ab.recorridoPreOrden();

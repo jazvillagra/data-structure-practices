@@ -310,9 +310,9 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 		int cont=0;
 		if (nodoActual != null) {
 			// procesa subarbol izquierdo
-			privGetDescendientes(nodoActual.getIzq(), valor);
+			privGetTam(nodoActual.getIzq(), valor);
 			// procesa subarbol derecho
-			privGetDescendientes(nodoActual.getDer(), valor);
+			privGetTam(nodoActual.getDer(), valor);
 			// procesa nodo
 			if(nodoActual.getDato().compareTo(valor)!=0){
 				cont++;

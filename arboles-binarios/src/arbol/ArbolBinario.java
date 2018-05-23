@@ -1,5 +1,7 @@
 package arbol;
 
+import bst.NodoBST;
+
 public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 	private NodoBinario raiz;
 	
@@ -77,13 +79,11 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
                 nodoActual.setDato(getMinimo(nodoActual.getIzq()));
                 nodoActual.setIzq(eliminarMinimo(nodoActual.getDer()));
             }
-
-            
 		}
 		return nodoActual;
 		
 	}
-
+	
 	private NodoBinario privInsertar(NodoBinario<TipoDeDato> actual, TipoDeDato dato) {
 		NodoBinario<TipoDeDato> nuevoNodo;
 		if(actual==null) {
@@ -131,4 +131,30 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 			}
 		}
 	}
+
+    public TipoDeDato getMinimo(NodoBinario<TipoDeDato> nodoActual) {
+        if (nodoActual == null) {
+            return null;
+
+        } else if (nodoActual.getIzq() == null) {
+            return nodoActual.getDato();
+
+        } else {
+            return getMinimo(nodoActual.getIzq());
+
+        }
+    }
+    private NodoBinario<TipoDeDato> eliminarMinimo(NodoBinario<TipoDeDato> nodoActual) {
+        if (nodoActual == null) {
+            return null;
+
+        } else if (nodoActual.getIzq() == null) {
+            return nodoActual.getDer();
+
+        } else {
+            nodoActual.setIzq(eliminarMinimo(nodoActual.getIzq()));
+            return nodoActual;
+
+        }
+    }
 }

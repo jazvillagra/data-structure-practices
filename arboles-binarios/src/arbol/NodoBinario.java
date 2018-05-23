@@ -2,14 +2,14 @@ package arbol;
 
 public class NodoBinario<TipoDeDato extends Comparable> {
 	TipoDeDato dato;
-	NodoBinario izq;
-	NodoBinario der;
+	NodoBinario<TipoDeDato> izq;
+	NodoBinario<TipoDeDato> der;
 	
 	public NodoBinario(TipoDeDato dato) {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public NodoBinario(TipoDeDato dato, NodoBinario i, NodoBinario d) {
+	public NodoBinario(TipoDeDato dato, NodoBinario<TipoDeDato> i, NodoBinario<TipoDeDato> d) {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -21,19 +21,19 @@ public class NodoBinario<TipoDeDato extends Comparable> {
 		this.dato = dato;
 	}
 
-	public NodoBinario getIzq() {
+	public NodoBinario<TipoDeDato> getIzq() {
 		return izq;
 	}
 
-	public void setIzq(NodoBinario izq) {
+	public void setIzq(NodoBinario<TipoDeDato> izq) {
 		this.izq = izq;
 	}
 
-	public NodoBinario getDer() {
+	public NodoBinario<TipoDeDato> getDer() {
 		return der;
 	}
 
-	public void setDer(NodoBinario der) {
+	public void setDer(NodoBinario<TipoDeDato> der) {
 		this.der = der;
 	}
 	public int compareTo(TipoDeDato otro) {

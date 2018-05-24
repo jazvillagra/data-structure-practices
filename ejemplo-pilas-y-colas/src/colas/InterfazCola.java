@@ -1,17 +1,15 @@
 package colas;
 
-public interface InterfazCola<TipoDeDato> {
+public interface InterfazCola<TipoDeDato extends Comparable<TipoDeDato>> {
         
     public void encolar(TipoDeDato dato);
     
     public TipoDeDato desencolar();
     
-    public TipoDeDato obtenerFrente();
-    
-    public void anular();
-    
     public int tamanoCola();
         
     public boolean esVacia();
+    
+    public void obtenerMayor(Cola<TipoDeDato> aux);
     
 }

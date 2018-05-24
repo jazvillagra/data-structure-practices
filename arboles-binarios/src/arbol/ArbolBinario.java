@@ -1,12 +1,33 @@
 package arbol;
 
-import bst.NodoBST;
 
 public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 	private NodoBinario<TipoDeDato> raiz;
 	private int alturaNodo;
 	
-    public void insertar(TipoDeDato datoNuevo) {
+	public NodoBinario<TipoDeDato> getPadre(NodoBinario<TipoDeDato> nodoHijo){
+		System.out.println("\nPadre del nodo "+nodoHijo.getDato());
+        return privGetPadre(raiz, nodoHijo);
+	}
+	
+    private NodoBinario<TipoDeDato> privGetPadre(NodoBinario<TipoDeDato> nodoActual, NodoBinario<TipoDeDato> nodoHijo) {
+		if(nodoHijo.getDato().compareTo(nodoActual.getDato())== 0){
+			nodoActual = null;
+		}else if(nodoActual.getIzq()!= null && nodoHijo.getDato().compareTo(nodoActual.getIzq().getDato()) == 0){
+			return nodoActual;
+		}else if(nodoActual.getDer() != null && nodoHijo.getDato().compareTo(nodoActual.getDer().getDato())== 0){
+			return nodoActual;
+		}else if(nodoHijo.getDato().compareTo(nodoActual.getDato()) > 0){
+			nodoActual=nodoActual.getDer();
+			privGetPadre(nodoActual,nodoHijo);
+		}else if(nodoHijo.getDato().compareTo(nodoActual.getDato()) < 0){
+			nodoActual=nodoActual.getIzq();
+			privGetPadre(nodoActual,nodoHijo);
+		}
+		return nodoActual;
+	}
+
+	public void insertar(TipoDeDato datoNuevo) {
         raiz= privInsertar(raiz, datoNuevo);
     }
 	
@@ -16,7 +37,7 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 	
 	public void recorridoPreOrden() {
 		System.out.println("\nImpresion del arbol pre-orden:");
-        privImprimirPreOrden(raiz);
+        privImprimirEnOrden(raiz);
         System.out.println();
 	}
 
@@ -301,7 +322,7 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
     }
     
 	public int getTam(NodoBinario<TipoDeDato> nodoRaiz, TipoDeDato valor){
-		System.out.println("Su tamaño es: ");
+		System.out.println("Su tamanho es: ");
 		return privGetTam(nodoRaiz, valor);
 	}
 

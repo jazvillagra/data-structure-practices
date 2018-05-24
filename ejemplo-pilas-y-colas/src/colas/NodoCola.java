@@ -1,6 +1,6 @@
 package colas;
 
-public class NodoCola<TipoDeDato> {
+public class NodoCola<TipoDeDato extends Comparable<TipoDeDato>> implements java.lang.Comparable<TipoDeDato>  {
     
     TipoDeDato dato;
     NodoCola<TipoDeDato> siguiente;
@@ -32,5 +32,8 @@ public class NodoCola<TipoDeDato> {
     public void setSiguiente(NodoCola<TipoDeDato> siguiente) {
         this.siguiente = siguiente;
     }
-    
+
+	public int compareTo(TipoDeDato o) {
+		return dato.compareTo(o);
+	}
 }

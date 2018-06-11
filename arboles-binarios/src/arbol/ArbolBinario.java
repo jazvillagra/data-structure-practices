@@ -342,7 +342,23 @@ public class ArbolBinario<TipoDeDato extends Comparable<TipoDeDato>> {
 		return cont;
 	}
     
-    
+
+    private int privcantidadNodosHoja(NodoBinario<TipoDeDato> nodoActual) {
+    	int cant=0;
+    	if (nodoActual != null) {
+            if (nodoActual.izq == null && nodoActual.der == null) {
+                cant++;
+            }
+            privcantidadNodosHoja(nodoActual.izq);
+            privcantidadNodosHoja(nodoActual.der);
+        }
+		return cant;
+    }
+
+    public int cantidadNodosHoja() {
+        int cant=privcantidadNodosHoja(raiz);
+        return cant;
+    }
     
     
 }

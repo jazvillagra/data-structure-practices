@@ -28,7 +28,7 @@ public class QuickSort {
 	       		i++;
 	       		j--;
 	      	}
-	       //si 0 es menor que j mantenemos la recursividad
+	       //si first es menor que j mantenemos la recursividad
 	       if (first< j){
 	    	   array = quicksort(array, first, j);
 	       }
@@ -38,20 +38,23 @@ public class QuickSort {
 	       }
 	       //devolvemos la lista ordenada
 		}
-		
+		System.out.println("\nCon pivote: "+pivote);
+		for(int f=0;f<array.length;f++){
+			System.out.print(array[f]+"\t");
+		}	
 	return array;	
 	}
 	
 	
 	
 	public static void main(String[] args) {
-		int[] Array={2,6,4,8,4,9,1,6,1,23,87,546,7,2,56,21,12,14,1,5,89,90};
+		int[] Array={58,98,95,29,16,56,8,52,89,96,63};
+		for(int i=0;i<Array.length;i++){
+			System.out.print(Array[i]+"\t");
+		}
 		int first=0;
 		int last=Array.length-1;
 		Array=quicksort(Array,first,last);
-		for(int i=0;i<Array.length;i++){
-			System.out.println(Array[i]);
-		}
 	}
 
 }
